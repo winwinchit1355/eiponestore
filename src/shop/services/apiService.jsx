@@ -1,9 +1,14 @@
 import axios from "axios";
+const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
 
-const serverUrl = 'http://jewelstoreapi.test';
+const serverUrl = 'http://jewelstoreapi.test/api';
 
-export const apiService = {
-    get: (url,params) => {
+axios.defaults.headers = headers;
+export const apiCall = {
+    get: (url,params=[]) => {
         return axios.get(`${serverUrl}/${url}`,{params})
         .then((response) => response.data);
     },
