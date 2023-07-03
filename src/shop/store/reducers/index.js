@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { categoryReducer } from "./categoryReducer";
 
-export default combineReducers({
+export const reducer = combineReducers({
     categoryReducer
 })
