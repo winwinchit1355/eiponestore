@@ -1,7 +1,11 @@
+import HomeBanner from "./Banner";
+
 function Home() {
-    return ( 
-        <h1>Home</h1>
-     );
+  return (
+    <>
+      <HomeBanner />
+    </>
+  );
 }
 
 export default Home;
