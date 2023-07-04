@@ -4,3 +4,28 @@
 .bg-dark:hover{
     background-color: #6c757d;
 }
+/* menu  */
+.top-navbar{
+    background-color: #b88907ed;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+
+.banner-image{
+    height: 500px;
+    object-fit: cover;
+}
+@media only screen and (max-width: 425px){
+    .banner-image{
+        height: 250px;
+        object-fit: cover;
+    } 
+}
+@media only screen and (max-width: 768){
+    .banner-image{
+        height: 400px;
+        object-fit: cover;
+    } 
+}

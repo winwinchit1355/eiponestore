@@ -28,25 +28,30 @@ function ShopNavbar() {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
-                Offcanvas
+                Menu
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-center flex-grow-1 pe-3">
-                <Nav.Link href="/shop">Home</Nav.Link>
-                <NavDropdown
-                  title="Shop"
-                  id={`offcanvasNavbarDropdown-expand-md`}
-                >
-                  {categories?.map((category, index) => (
-                    <NavDropdown.Item key={index} href="#action3">
-                      {category.name}
-                    </NavDropdown.Item>
-                  ))}
-                </NavDropdown>
-                <Nav.Link href="/contact-us">Contact Us</Nav.Link>
-              </Nav>
-              <Nav className="justify-content-center flex-grow-2 pe-3">
+              <div className="row w-100">
+                <div className="col-md-3"></div>
+                <div className="col-md-5">
+                <Nav className="justify-content-center flex-grow-1 pe-3">
+                  <Nav.Link href="/">Home</Nav.Link>
+                  <NavDropdown
+                    title="Shop"
+                    id={`offcanvasNavbarDropdown-expand-md`}
+                    >
+                    {categories?.map((category, index) => (
+                      <NavDropdown.Item key={index} href="#action3">
+                        {category.name}
+                      </NavDropdown.Item>
+                    ))}
+                  </NavDropdown>
+                  <Nav.Link href="/contact-us">Contact Us</Nav.Link>
+                </Nav>
+                </div>
+                <div className="col-md-4">
+                <Nav className="justify-content-center flex-grow-2 pe-3">
                 <Form className="d-flex">
                   <Form.Control
                     type="search"
@@ -57,6 +62,10 @@ function ShopNavbar() {
                   <Button className="btn btn-success">Search</Button>
                 </Form>
               </Nav>
+                </div>
+              </div>
+              
+              
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
