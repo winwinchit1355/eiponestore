@@ -11,8 +11,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 function TopNavbar() {
   return (
     <>
-      {["md"].map((expand) => (
-        <Navbar key={expand}  className="bg-body-tertiary">
+        <Navbar key='md'  className="bg-body-tertiary">
           <Container fluid className="bg-dark">
             <Navbar.Brand
               className="text-white"
@@ -22,12 +21,12 @@ function TopNavbar() {
               Su Su Store
             </Navbar.Brand>
             <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              id='offcanvasNavbar-expand-md'
+              aria-labelledby='offcanvasNavbarLabel-expand-md'
               placement="end"
             >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                <Offcanvas.Title id='offcanvasNavbarLabel-expand-md'>
                   Offcanvas
                 </Offcanvas.Title>
               </Offcanvas.Header>
@@ -40,7 +39,7 @@ function TopNavbar() {
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
-      ))}
+      
     </>
   );
 }
