@@ -35,6 +35,9 @@
   }
 }
 
+li a {
+  text-decoration: none;
+}
 
 /* feature products */
 /* separtor  */
@@ -147,4 +150,15 @@
 
 .slick-slide *:focus {
   outline: none;
+}
+
+/* footer  */
+.footer-section2 ul li a {
+  color: #616569;
+  font-size: 15px;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
 }

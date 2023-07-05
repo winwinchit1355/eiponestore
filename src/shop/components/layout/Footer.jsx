@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 function Footer() {
   return (
@@ -35,60 +34,63 @@ function Footer() {
                 <ul className="list-unstyled">
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Jeans
+                      <i className="fa-solid fa-chevron-right"></i> Jeans
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> T-Shirts
+                      <i className="fa-solid fa-chevron-right"></i> T-Shirts
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Sports
+                      <i className="fa-solid fa-chevron-right"></i> Sports
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Shirts &amp; Tops
+                      <i className="fa-solid fa-chevron-right"></i> Shirts &amp;
+                      Tops
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Clogs &amp; Mules
+                      <i className="fa-solid fa-chevron-right"></i> Clogs &amp;
+                      Mules
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Sunglasses
+                      <i className="fa-solid fa-chevron-right"></i> Sunglasses
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Bags &amp; Wallets
+                      <i className="fa-solid fa-chevron-right"></i> Bags &amp;
+                      Wallets
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Sneakers &amp;
-                      Athletic
+                      <i className="fa-solid fa-chevron-right"></i> Sneakers
+                      &amp; Athletic
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Electronis
+                      <i className="fa-solid fa-chevron-right"></i> Electronis
                     </a>
                   </li>
                   <li className="mb-1">
                     <a href="javascript:;">
-                      <i className="bx bx-chevron-right" /> Furniture
+                      <i className="fa-solid fa-chevron-right"></i> Furniture
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
             <div className="col">
-              <div className="footer-section3">
+              <div className="footer-section3 ">
                 <h5 className="mb-4 text-uppercase fw-bold">Popular Tags</h5>
                 <div className="tags-box d-flex flex-wrap gap-2">
                   <a
@@ -179,10 +181,10 @@ function Footer() {
               </div>
             </div>
             <div className="col">
-              <div className="footer-section4">
+              <div className="footer-section4 text-center">
                 <h5 className="mb-4 text-uppercase fw-bold">Social</h5>
-                <a href="">
-                  <FontAwesomeIcon icon={faFacebook} size="lg" color="blue" />
+                <a href="" style={{ fontSize: "18px" }}>
+                  <i className="fa-brands fa-facebook"></i>
                 </a>
               </div>
             </div>

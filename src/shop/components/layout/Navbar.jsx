@@ -18,7 +18,7 @@ function ShopNavbar() {
 
   return (
     <>
-      <Navbar key="md" expand="md" className="bg-body-tertiary mb-3">
+      <Navbar key="md" expand="md" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
           <Navbar.Offcanvas
@@ -35,37 +35,35 @@ function ShopNavbar() {
               <div className="row w-100">
                 <div className="col-md-3"></div>
                 <div className="col-md-5">
-                <Nav className="justify-content-center flex-grow-1 pe-3">
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <NavDropdown
-                    title="Shop"
-                    id={`offcanvasNavbarDropdown-expand-md`}
+                  <Nav className="justify-content-center flex-grow-1 pe-3">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <NavDropdown
+                      title="Shop"
+                      id={`offcanvasNavbarDropdown-expand-md`}
                     >
-                    {categories?.map((category, index) => (
-                      <NavDropdown.Item key={index} href="#action3">
-                        {category.name}
-                      </NavDropdown.Item>
-                    ))}
-                  </NavDropdown>
-                  <Nav.Link href="/contact-us">Contact Us</Nav.Link>
-                </Nav>
+                      {categories?.map((category, index) => (
+                        <NavDropdown.Item key={index} href="#action3">
+                          {category.name}
+                        </NavDropdown.Item>
+                      ))}
+                    </NavDropdown>
+                    <Nav.Link href="/contact-us">Contact Us</Nav.Link>
+                  </Nav>
                 </div>
                 <div className="col-md-4">
-                <Nav className="justify-content-center flex-grow-2 pe-3">
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button className="btn btn-success">Search</Button>
-                </Form>
-              </Nav>
+                  <Nav className="justify-content-center flex-grow-2 pe-3">
+                    <Form className="d-flex">
+                      <Form.Control
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        aria-label="Search"
+                      />
+                      <Button className="btn btn-success">Search</Button>
+                    </Form>
+                  </Nav>
                 </div>
               </div>
-              
-              
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

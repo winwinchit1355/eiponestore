@@ -1,6 +1,6 @@
 function BestSellingProducts() {
   return (
-    <div className="container">
+    <div className="container mb-5">
       <div className="separator pb-4">
         <div className="line"></div>
         <h5 className="mb-0 fw-bold separator-title">BEST SELLING PRODUCTS</h5>
