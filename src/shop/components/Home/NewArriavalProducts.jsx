@@ -1,17 +1,16 @@
 import { imageUrl } from "../../../environment";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-function FeatureProducts({ products }) {
-  console.log(imageUrl);
+function NewArriavalProducts({ products }) {
   return (
     <div className="container mb-5">
       <div className="separator pb-4 mb-4">
         <div className="line"></div>
-        <h5 className="mb-0 fw-bold separator-title">FEATURED PRODUCTS</h5>
+        <h5 className="mb-0 fw-bold separator-title">NEW ARRIAVAL PRODUCTS</h5>
         <div className="line"></div>
       </div>
       <div className="product-grid">
-        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3 g-3 g-sm-4">
+        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3 g-3 g-sm-4">
           {products?.map((product) => (
             <div key={product.id} className="col">
               <div className="card">
@@ -78,4 +77,4 @@ function FeatureProducts({ products }) {
   );
 }
 
-export default FeatureProducts;
+export default NewArriavalProducts;

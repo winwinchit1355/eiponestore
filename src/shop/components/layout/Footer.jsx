@@ -197,20 +197,7 @@ function Footer() {
           <div className="d-flex flex-column flex-lg-row align-items-center gap-3 justify-content-between">
             <p className="mb-0">Copyright © 2022. All right reserved.</p>
             <div className="payment-icon">
-              <div className="row row-cols-auto g-2 justify-content-end">
-                <div className="col">
-                  <img src="assets/images/icons/visa.png" alt="" />
-                </div>
-                <div className="col">
-                  <img src="assets/images/icons/paypal.png" alt="" />
-                </div>
-                <div className="col">
-                  <img src="assets/images/icons/mastercard.png" alt="" />
-                </div>
-                <div className="col">
-                  <img src="assets/images/icons/american-express.png" alt="" />
-                </div>
-              </div>
+              <div className="row row-cols-auto g-2 justify-content-end"></div>
             </div>
           </div>
         </div>

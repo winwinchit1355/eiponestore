@@ -1,15 +1,29 @@
+import { useSelector, useDispatch } from "react-redux";
 import AdsCards from "./AdsCards";
 import HomeBanner from "./Banner";
-import BestSellingProducts from "./BestSellingProducts";
 import FeatureProducts from "./FeatureProducts";
+import { useEffect } from "react";
+import { fetchProducts, fetchFeatureProducts } from "../../store/actions";
+import NewArriavalProducts from "./NewArriavalProducts";
 
 function Home() {
+  const params = "?perPage=6";
+  const featureParams = "?perPage=6&is_feature=active";
+  const { products } = useSelector((state) => state.products);
+  const { featureProducts } = useSelector((state) => state.featureProducts);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts(params));
+    dispatch(fetchFeatureProducts(featureParams));
+  }, []);
   return (
     <div>
       <HomeBanner />
       <AdsCards />
-      <FeatureProducts />
-      <BestSellingProducts />
+      <FeatureProducts products={featureProducts?.data} />
+      <NewArriavalProducts products={products?.data} />
     </div>
   );
 }

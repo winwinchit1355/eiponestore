@@ -4,7 +4,8 @@ import Home from "./components/Home/Home";
 import Shop from "./components/Shop/Shop";
 import ContactUs from "./components/ContactUs/ContactUs";
 import NotFound from "../errors/NotFound";
-import './components/styles/style.css';
+import "./components/styles/style.css";
+import Service from "./components/Service/Service";
 
 function ShopApp() {
   return (
@@ -12,6 +13,7 @@ function ShopApp() {
       <Route path="/" element={<ShopLayout />}>
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
+        <Route path="service" element={<Service />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="*" element={<NotFound />} />
       </Route>

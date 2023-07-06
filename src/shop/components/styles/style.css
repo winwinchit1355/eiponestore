@@ -39,6 +39,10 @@ li a {
   text-decoration: none;
 }
 
+.no-underline {
+  text-decoration: none;
+}
+
 /* feature products */
 /* separtor  */
 
@@ -161,4 +165,33 @@ li a {
 .list-unstyled {
   padding-left: 0;
   list-style: none;
+}
+
+/* service */
+.service-image {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media all and (min-width: 992px) {
+  .service-image {
+    float: left;
+    width: 50%;
+  }
+
+}
+
+.justify-image {
+  height: 350px;
+  object-fit: cover;
+}
+
+.btn-ecomm {
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 0;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

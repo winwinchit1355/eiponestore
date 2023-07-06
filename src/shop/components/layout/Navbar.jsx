@@ -47,6 +47,7 @@ function ShopNavbar() {
                         </NavDropdown.Item>
                       ))}
                     </NavDropdown>
+                    <Nav.Link href="/service">Service</Nav.Link>
                     <Nav.Link href="/contact-us">Contact Us</Nav.Link>
                   </Nav>
                 </div>
