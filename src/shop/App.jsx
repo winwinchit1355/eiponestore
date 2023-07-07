@@ -12,9 +12,9 @@ function ShopApp() {
     <Routes>
       <Route path="/" element={<ShopLayout />}>
         <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />} />
         <Route path="service" element={<Service />} />
         <Route path="contact-us" element={<ContactUs />} />
+        <Route path="/shop/:slug" element={<Shop />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

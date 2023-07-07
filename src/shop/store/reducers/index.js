@@ -6,4 +6,5 @@ export const reducers = combineReducers({
   categories: categoryReducer,
   products: productReducer,
   featureProducts: productReducer,
+  shopProducts: productReducer,
 });

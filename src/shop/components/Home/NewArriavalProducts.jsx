@@ -10,18 +10,18 @@ function NewArriavalProducts({ products }) {
         <div className="line"></div>
       </div>
       <div className="product-grid">
-        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3 g-3 g-sm-4">
+        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4 g-3 g-sm-4">
           {products?.map((product) => (
             <div key={product.id} className="col">
               <div className="card">
                 <div className="position-relative overflow-hidden">
-                  <div className="add-cart position-absolute top-0 end-0 mt-3 me-3">
-                    <a href="javascript:;" className="no-underline">
+                  <div className="add-cart position-absolute top-0 end-0 mt-3 me-1">
+                    <a title="Add to card" href="#" className="no-underline">
                       <i className="fa-solid fa-plus" />
                     </a>
                   </div>
 
-                  <a href="javascript:;">
+                  <a href="#">
                     <img
                       src={imageUrl + product.feature_image}
                       className="justify-image"
@@ -40,17 +40,21 @@ function NewArriavalProducts({ products }) {
                       </h6>
                     </div>
                     <div className="icon-wishlist">
-                      <a href="javascript:;" className="no-underline text-dark">
+                      <a
+                        title="Add to wishlist"
+                        href="#"
+                        className="no-underline text-dark"
+                      >
                         <i className="fa-regular fa-heart" />
                       </a>
                     </div>
                   </div>
                   <div className="cursor-pointer rating mt-2">
-                    <i className="bx bxs-star text-warning" />
-                    <i className="bx bxs-star text-warning" />
-                    <i className="bx bxs-star text-warning" />
-                    <i className="bx bxs-star text-warning" />
-                    <i className="bx bxs-star text-warning" />
+                    <i className="fa-regular fa-star text-warning" />
+                    <i className="fa-regular fa-star text-warning" />
+                    <i className="fa-regular fa-star text-warning" />
+                    <i className="fa-regular fa-star text-warning" />
+                    <i className="fa-regular fa-star text-warning" />
                   </div>
                   <div className="product-price d-flex align-items-center justify-content-start gap-2 mt-2">
                     {product.discount_price != 0 ? (

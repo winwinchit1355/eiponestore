@@ -33,56 +33,56 @@ function Footer() {
                 <h5 className="mb-4 text-uppercase fw-bold">Categories</h5>
                 <ul className="list-unstyled">
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Jeans
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> T-Shirts
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Sports
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Shirts &amp;
                       Tops
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Clogs &amp;
                       Mules
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Sunglasses
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Bags &amp;
                       Wallets
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Sneakers
                       &amp; Athletic
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Electronis
                     </a>
                   </li>
                   <li className="mb-1">
-                    <a href="javascript:;">
+                    <a href="#">
                       <i className="fa-solid fa-chevron-right"></i> Furniture
                     </a>
                   </li>
@@ -93,88 +93,46 @@ function Footer() {
               <div className="footer-section3 ">
                 <h5 className="mb-4 text-uppercase fw-bold">Popular Tags</h5>
                 <div className="tags-box d-flex flex-wrap gap-2">
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Cloths
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Electronis
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Furniture
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Sports
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Men Wear
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Women Wear
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Laptops
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Formal Shirts
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Topwear
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Headphones
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Bottom Wear
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Bags
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Sofa
                   </a>
-                  <a
-                    href="javascript:;"
-                    className="btn btn-ecomm btn-outline-dark"
-                  >
+                  <a href="#" className="btn btn-ecomm btn-outline-dark">
                     Shoes
                   </a>
                 </div>

@@ -7,8 +7,8 @@ import { fetchProducts, fetchFeatureProducts } from "../../store/actions";
 import NewArriavalProducts from "./NewArriavalProducts";
 
 function Home() {
-  const params = "?perPage=6";
-  const featureParams = "?perPage=6&is_feature=active";
+  const params = "?perPage=8";
+  const featureParams = "?perPage=8&is_feature=active";
   const { products } = useSelector((state) => state.products);
   const { featureProducts } = useSelector((state) => state.featureProducts);
 
