@@ -1,4 +1,20 @@
+
 function ProductDetail() {
+  const handleDecrease = () => {
+    const quantityInput = document.getElementById('quantity_1');
+    let quantity = parseInt(quantityInput.value, 10);
+    if (quantity > 1) {
+      quantity -= 1;
+      quantityInput.value = quantity;
+    }
+  };
+
+  const handleIncrease = () => {
+    const quantityInput = document.getElementById('quantity_1');
+    let quantity = parseInt(quantityInput.value, 10);
+    quantity += 1;
+    quantityInput.value = quantity;
+  };
   return (
     <main>
       <div className="container margin_30">
@@ -91,11 +107,11 @@ function ProductDetail() {
             <div className="prod_info">
               <h1>Armor Air X Fear</h1>
               <span className="rating">
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star" />
+                <i className="fa-regular fa-star text-warning" />
+                <i className="fa-regular fa-star text-warning" />
+                <i className="fa-regular fa-star text-warning" />
+                <i className="fa-regular fa-star text-warning" />
+                <i className="fa-regular fa-star" />
                 <em>4 reviews</em>
               </span>
               <p>
@@ -107,56 +123,14 @@ function ProductDetail() {
               </p>
               <div className="prod_options">
                 <div className="row">
-                  <label className="col-xl-5 col-lg-5  col-md-6 col-6 pt-0">
-                    <strong>Color</strong>
-                  </label>
-                  <div className="col-xl-4 col-lg-5 col-md-6 col-6 colors">
-                    <ul>
-                      <li>
-                        <a href="#0" className="color color_1 active" />
-                      </li>
-                      <li>
-                        <a href="#0" className="color color_2" />
-                      </li>
-                      <li>
-                        <a href="#0" className="color color_3" />
-                      </li>
-                      <li>
-                        <a href="#0" className="color color_4" />
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="row">
-                  <label className="col-xl-5 col-lg-5 col-md-6 col-6">
-                    <strong>Size</strong> - Size Guide{" "}
-                    <a
-                      href="#0"
-                      data-bs-toggle="modal"
-                      data-bs-target="#size-modal"
-                    >
-                      <i className="ti-help-alt" />
-                    </a>
-                  </label>
-                  <div className="col-xl-4 col-lg-5 col-md-6 col-6">
-                    <div className="custom-select-form">
-                      <select className="wide">
-                        <option value="" selected="">
-                          Small (S)
-                        </option>
-                        <option value="">M</option>
-                        <option value=" ">L</option>
-                        <option value=" ">XL</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
                   <label className="col-xl-5 col-lg-5  col-md-6 col-6">
                     <strong>Quantity</strong>
                   </label>
                   <div className="col-xl-4 col-lg-5 col-md-6 col-6">
-                    <div className="numbers-row">
+                    <div className="numbers-row d-flex align-items-center">
+                    <button type="button" className="qty-button" onClick={handleDecrease}>
+                      -
+                    </button>
                       <input
                         type="text"
                         defaultValue={1}
@@ -164,6 +138,9 @@ function ProductDetail() {
                         className="qty2"
                         name="quantity_1"
                       />
+                      <button type="button" className="qty-button" onClick={handleIncrease}>
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -190,13 +167,13 @@ function ProductDetail() {
               <ul>
                 <li>
                   <a href="#">
-                    <i className="ti-heart" />
+                    <i className="fa-regular fa-heart"></i>
                     <span>Add to Wishlist</span>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i className="ti-control-shuffle" />
+                    <i className="fa fa-light fa-shuffle"></i>
                     <span>Add to Compare</span>
                   </a>
                 </li>
