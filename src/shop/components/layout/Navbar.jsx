@@ -100,7 +100,7 @@ function ShopNavbar() {
                   name="productName"
                   {...register("productName")}
                 />
-                <Button className="btn btn-dark product-search-btn" onClick={handleSubmit(onSubmit)}>
+                <Button className="btn btn-dark btn-ecommerce" onClick={handleSubmit(onSubmit)}>
                   Search
                 </Button>
               </Form>

@@ -7,6 +7,7 @@ import NotFound from "../errors/NotFound";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./components/styles/style.css";
 import Service from "./components/Service/Service";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 
 function ShopApp() {
   return (
@@ -16,6 +17,7 @@ function ShopApp() {
         <Route path="service" element={<Service />} />
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/product-detail/:slug" element={<ProductDetail/>} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
