@@ -18,12 +18,16 @@ function ShopNavbar() {
   const [showNavDropdown, setShowNavDropdown] = useState(false);
   const { categories } = useSelector((state) => state.categories);
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors },setValue,watch } = useForm();
   const dispatch = useDispatch();
+
+  const searchParams = new URLSearchParams(location.search);
+  const productName = searchParams.get("productName");
   useEffect(() => {
     setUrl(location.pathname);
     dispatch(fetchCategories());
-  }, []);
+    setValue("productName", productName || "");
+  }, [productName]);
 
   const handleNavDropdownSelect = () => {
     setShowNavDropdown(false);

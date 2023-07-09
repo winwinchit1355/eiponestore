@@ -1,4 +1,4 @@
-import { apiBaseUrls, productActionType } from "../../consts/index";
+import { apiBaseUrls, productActionType,constants } from "../../consts/index";
 import { apiCall } from "../../services/apiService";
 
 export function fetchProducts(params) {
@@ -23,11 +23,19 @@ export function fetchFeatureProducts(params) {
 }
 export function fetchShopProducts(params) {
   return async (dispatch) => {
+    dispatch({
+      type: constants.IS_LOADING,
+      payload: true
+    })
     let Url = apiBaseUrls.SHOP + params;
     const response = await apiCall.get(Url);
     dispatch({
       type: productActionType.FETCH_SHOP_PRODUCTS,
       payload: response.data,
     });
+    dispatch({
+      type: constants.IS_LOADING,
+      payload: false
+    })
   };
 }

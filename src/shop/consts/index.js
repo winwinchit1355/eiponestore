@@ -1,3 +1,6 @@
+export const constants = {
+  IS_LOADING: 'IS_LOADING',
+};
 export const categoryActionType = {
   FETCH_CATEGORIES: "FETCH_CATEGORIES",
   FETCH_CATEGORY: "FETCH_CATEGORY",
