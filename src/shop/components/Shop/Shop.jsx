@@ -1,27 +1,47 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { fetchShopProducts } from "../../store/actions";
 import ShopProductSidebar from "./ShopProductSidebar";
-import ShopProductHeader from "./ShopProductHeader";
 import ProductLists from "./ProductLists";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 function Shop() {
-  const { slug } = useParams();
-  const params = "?perPage=8&category=" + slug;
   const { shopProducts } = useSelector((state) => state.shopProducts);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const categoryName = searchParams.get("category");
+  const productName = searchParams.get("productName");
+
+  let params = "?perPage=8";
+  if (categoryName) {
+    params = params + "&category=" + categoryName;
+  }
+  if (productName) {
+    params = params + "&name=" + productName;
+  }
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchShopProducts(params));
-  }, [slug]);
+  }, [categoryName]);
 
   return (
-    <>
-      <ShopProductSidebar />
-      <ShopProductHeader />
-      <ProductLists products={shopProducts?.data} />
-    </>
+    // <>
+
+    //   <ProductLists products={shopProducts?.data} />
+    // </>
+    <div className="container pt-5">
+      <div className="row">
+        <div className="col-md-3" id="sidebar_fixed">
+          <ShopProductSidebar/>
+        </div>
+        <div className="col-md-9">
+          <ProductLists/>
+        </div>
+      </div>
+    </div>
   );
 }
 

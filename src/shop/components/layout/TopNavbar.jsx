@@ -11,7 +11,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 function TopNavbar() {
   return (
     <>
-        <Navbar key='md'  className="bg-body-tertiary">
+        <Navbar key='md'  className="bg-body-tertiary ">
           <Container fluid className="bg-dark">
             <Navbar.Brand
               className="text-white"

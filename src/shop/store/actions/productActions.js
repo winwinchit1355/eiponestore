@@ -24,7 +24,6 @@ export function fetchFeatureProducts(params) {
 export function fetchShopProducts(params) {
   return async (dispatch) => {
     let Url = apiBaseUrls.SHOP + params;
-    console.log(Url);
     const response = await apiCall.get(Url);
     dispatch({
       type: productActionType.FETCH_SHOP_PRODUCTS,

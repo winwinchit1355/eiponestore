@@ -9,12 +9,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchCategories } from "../../store/actions";
 import { Link, useLocation } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function ShopNavbar() {
   const location = useLocation();
   const [url, setUrl] = useState(null);
   const [showNavDropdown, setShowNavDropdown] = useState(false);
   const { categories } = useSelector((state) => state.categories);
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const dispatch = useDispatch();
   useEffect(() => {
     setUrl(location.pathname);
@@ -28,6 +32,14 @@ function ShopNavbar() {
   const handleNavDropdownClick = () => {
     setShowNavDropdown(false);
   };
+
+  const onSubmit = (data) => {
+    try{
+      navigate(`/shop?productName=${data.productName}`);
+    }catch (error){
+      console.log(error);
+    }
+  }
   return (
     <>
       <Navbar key="md" expand="md" className="bg-body-tertiary">
@@ -59,7 +71,7 @@ function ShopNavbar() {
                   {categories?.map((category, index) => (
                     <Link
                       key={index}
-                      to={`/shop/${category.slug}`}
+                      to={`/shop?category=${category.slug}`}
                       className="dropdown-item"
                       // onClick={handleNavDropdownClick}
                     >
@@ -75,14 +87,16 @@ function ShopNavbar() {
                 </Nav.Link>
               </Nav>
               {/* <Nav className="justify-content-center flex-grow-2 pe-3"> */}
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
+              <Form className="d-flex" >
+                <input
+                  type="text"
                   placeholder="Search"
-                  className="product-search"
+                  className="product-search form-control"
                   aria-label="Search"
+                  name="productName"
+                  {...register("productName")}
                 />
-                <Button className="btn btn-dark product-search-btn">
+                <Button className="btn btn-dark product-search-btn" onClick={handleSubmit(onSubmit)}>
                   Search
                 </Button>
               </Form>

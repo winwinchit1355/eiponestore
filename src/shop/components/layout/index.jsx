@@ -6,8 +6,10 @@ import Footer from "./Footer";
 function ShopLayout() {
   return (
     <div id="page">
-      <TopNavbar />
-      <ShopNavbar />
+      <div className="sticky-container sticky-top">
+        <TopNavbar />
+        <ShopNavbar />
+      </div>
       <Outlet />
       <Footer />
     </div>
