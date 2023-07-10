@@ -1,7 +1,8 @@
+import { Carousel } from "react-responsive-carousel";
 
 function ProductDetail() {
   const handleDecrease = () => {
-    const quantityInput = document.getElementById('quantity_1');
+    const quantityInput = document.getElementById("quantity_1");
     let quantity = parseInt(quantityInput.value, 10);
     if (quantity > 1) {
       quantity -= 1;
@@ -10,7 +11,7 @@ function ProductDetail() {
   };
 
   const handleIncrease = () => {
-    const quantityInput = document.getElementById('quantity_1');
+    const quantityInput = document.getElementById("quantity_1");
     let quantity = parseInt(quantityInput.value, 10);
     quantity += 1;
     quantityInput.value = quantity;
@@ -24,72 +25,17 @@ function ProductDetail() {
         </div>
         <div className="row">
           <div className="col-md-6">
-            <div className="all">
-              <div className="slider">
-                <div className="owl-carousel owl-theme main">
-                  <div
-                    style={{ backgroundImage: "url(public/assets/images/1.jpg)" }}
-                    className="item-box"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(public/assets/images/2.jpg)" }}
-                    className="item-box"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(public/assets/images/3.jpg)" }}
-                    className="item-box"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(public/assets/images/4.jpg)" }}
-                    className="item-box"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/5.jpg)" }}
-                    className="item-box"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/6.jpg)" }}
-                    className="item-box"
-                  />
-                </div>
-                <div className="left nonl">
-                  <i className="ti-angle-left" />
-                </div>
-                <div className="right">
-                  <i className="ti-angle-right" />
-                </div>
+            <Carousel>
+              <div>
+                <img src="../../../../public/assets/images/1.jpg" />
               </div>
-              <div className="slider-two">
-                <div className="owl-carousel owl-theme thumbs">
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/1.jpg)" }}
-                    className="item active"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/2.jpg)" }}
-                    className="item"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/3.jpg)" }}
-                    className="item"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/4.jpg)" }}
-                    className="item"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/5.jpg)" }}
-                    className="item"
-                  />
-                  <div
-                    style={{ backgroundImage: "url(img/products/shoes/6.jpg)" }}
-                    className="item"
-                  />
-                </div>
-                <div className="left-t nonl-t" />
-                <div className="right-t" />
+              <div>
+                <img src="../../../../public/assets/images/2.jpg" />
               </div>
-            </div>
+              <div>
+                <img src="../../../../public/assets/images/3.jpg" />
+              </div>
+            </Carousel>
           </div>
           <div className="col-md-6">
             <div className="breadcrumbs">
@@ -128,9 +74,13 @@ function ProductDetail() {
                   </label>
                   <div className="col-xl-4 col-lg-5 col-md-6 col-6">
                     <div className="numbers-row d-flex align-items-center">
-                    <button type="button" className="qty-button" onClick={handleDecrease}>
-                      -
-                    </button>
+                      <button
+                        type="button"
+                        className="qty-button"
+                        onClick={handleDecrease}
+                      >
+                        <i className="fa fa-solid fa-minus"></i>
+                      </button>
                       <input
                         type="text"
                         defaultValue={1}
@@ -138,8 +88,12 @@ function ProductDetail() {
                         className="qty2"
                         name="quantity_1"
                       />
-                      <button type="button" className="qty-button" onClick={handleIncrease}>
-                        +
+                      <button
+                        type="button"
+                        className="qty-button"
+                        onClick={handleIncrease}
+                      >
+                        <i className="fa fa-solid fa-plus"></i>
                       </button>
                     </div>
                   </div>
@@ -188,7 +142,7 @@ function ProductDetail() {
       <div className="tabs_product">
         <div className="container">
           <ul className="nav nav-tabs" role="tablist">
-            <li className="nav-item">
+            <li className="nav-item ">
               <a
                 id="tab-A"
                 href="#pane-A"
