@@ -47,7 +47,7 @@ function ShopNavbar() {
   return (
     <>
       <Navbar key="md" expand="md" className="bg-body-tertiary">
-        <Container fluid>
+        <Container fluid className="nav-container">
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-md"

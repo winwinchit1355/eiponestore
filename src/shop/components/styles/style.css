@@ -7,6 +7,13 @@
 }
 
 /* menu  */
+.bg-body-tertiary{
+  padding-top:0 !important;
+  padding-bottom: 0 !important;
+}
+.nav-container{
+  padding:10px;
+}
 .navbar-toggler {
   border-radius: 0 !important;
 }

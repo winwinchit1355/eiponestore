@@ -7,6 +7,8 @@ export const productReducer = (state = [], action) => {
       return { ...state, featureProducts: action.payload };
     case productActionType.FETCH_SHOP_PRODUCTS:
       return { ...state, shopProducts: action.payload };
+    case productActionType.FETCH_PRODUCT_DETAIL:
+      return { ...state, product: action.payload };
     default:
       return state;
   }

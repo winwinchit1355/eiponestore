@@ -8,5 +8,6 @@ export const reducers = combineReducers({
   products: productReducer,
   featureProducts: productReducer,
   shopProducts: productReducer,
+  product: productReducer,
   loading: loadingReducer,
 });

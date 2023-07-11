@@ -5,6 +5,7 @@ import FeatureProducts from "./FeatureProducts";
 import { useEffect } from "react";
 import { fetchProducts, fetchFeatureProducts } from "../../store/actions";
 import NewArriavalProducts from "./NewArriavalProducts";
+import LoadingPage from "./loadingPage";
 
 function Home() {
   const params = "?perPage=8";
@@ -22,8 +23,11 @@ function Home() {
     <div>
       <HomeBanner />
       <AdsCards />
-      <FeatureProducts products={featureProducts?.data} />
-      <NewArriavalProducts products={products?.data} />
+      {featureProducts?<FeatureProducts products={featureProducts?.data} />
+      :<LoadingPage/>}
+      {products?<NewArriavalProducts products={products?.data} />
+      :<LoadingPage/>}
+      
     </div>
   );
 }

@@ -1,17 +1,28 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
+import { useParams } from "react-router-dom";
+import { fetchProductDetail } from "../../store/actions";
 
 function ProductDetail() {
+  const {slug} = useParams();
+  const params = "/"+slug;
+  const { product } = useSelector((state) => state.product);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(fetchProductDetail(params));
+  },[])
   const handleDecrease = () => {
-    const quantityInput = document.getElementById("quantity_1");
+    const quantityInput = document.getElementById("quantity");
     let quantity = parseInt(quantityInput.value, 10);
     if (quantity > 1) {
       quantity -= 1;
-      quantityInput.value = quantity;
     }
+    quantityInput.value = quantity;
   };
 
   const handleIncrease = () => {
-    const quantityInput = document.getElementById("quantity_1");
+    const quantityInput = document.getElementById("quantity");
     let quantity = parseInt(quantityInput.value, 10);
     quantity += 1;
     quantityInput.value = quantity;
@@ -51,7 +62,7 @@ function ProductDetail() {
             </div>
             {/* /page_header */}
             <div className="prod_info">
-              <h1>Armor Air X Fear</h1>
+              <h1>{product?.name}</h1>
               <span className="rating">
                 <i className="fa-regular fa-star text-warning" />
                 <i className="fa-regular fa-star text-warning" />
@@ -61,11 +72,9 @@ function ProductDetail() {
                 <em>4 reviews</em>
               </span>
               <p>
-                <small>SKU: MTKRY-001</small>
+                <small>SKU: {product?.sku}</small>
                 <br />
-                Sed ex labitur adolescens scriptorem. Te saepe verear tibique
-                sed. Et wisi ridens vix, lorem iudico blandit mel cu. Ex vel
-                sint zril oportere, amet wisi aperiri te cum.
+                {product?.desc}
               </p>
               <div className="prod_options">
                 <div className="row">
@@ -84,9 +93,10 @@ function ProductDetail() {
                       <input
                         type="text"
                         defaultValue={1}
-                        id="quantity_1"
-                        className="qty2"
-                        name="quantity_1"
+                        id="quantity"
+                        className="qty2 form-control mx-2"
+                        name="quantity"
+                        min={0}
                       />
                       <button
                         type="button"

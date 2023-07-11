@@ -39,3 +39,13 @@ export function fetchShopProducts(params) {
     })
   };
 }
+export function fetchProductDetail(params) {
+  return async (dispatch) => {
+    let Url = apiBaseUrls.PRODUCT_DETAIL + params;
+    const response = await apiCall.get(Url);
+    dispatch({
+      type: productActionType.FETCH_PRODUCT_DETAIL,
+      payload: response.data,
+    });
+  };
+}
