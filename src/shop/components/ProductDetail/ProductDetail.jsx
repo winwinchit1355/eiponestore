@@ -5,13 +5,13 @@ import { useParams } from "react-router-dom";
 import { fetchProductDetail } from "../../store/actions";
 
 function ProductDetail() {
-  const {slug} = useParams();
-  const params = "/"+slug;
+  const { slug } = useParams();
+  const params = "/" + slug;
   const { product } = useSelector((state) => state.product);
   const dispatch = useDispatch();
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchProductDetail(params));
-  },[])
+  }, []);
   const handleDecrease = () => {
     const quantityInput = document.getElementById("quantity");
     let quantity = parseInt(quantityInput.value, 10);
@@ -27,8 +27,14 @@ function ProductDetail() {
     quantity += 1;
     quantityInput.value = quantity;
   };
+  const handleInputChange = (event) => {
+    if (event.target.value < 1) {
+      const quantityInput = document.getElementById("quantity");
+      quantityInput.value = 1;
+    }
+  };
   return (
-    <main>
+    <main className="mt-3">
       <div className="container margin_30">
         <div className="countdown_inner">
           -20% This offer ends in{" "}
@@ -96,7 +102,7 @@ function ProductDetail() {
                         id="quantity"
                         className="qty2 form-control mx-2"
                         name="quantity"
-                        min={0}
+                        onChange={handleInputChange}
                       />
                       <button
                         type="button"
