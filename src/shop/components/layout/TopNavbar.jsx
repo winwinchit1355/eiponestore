@@ -1,5 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShoppingCart,
+  faHeart,
+  faArrowRightToBracket,
+  faArrowRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -9,7 +14,7 @@ function TopNavbar() {
   return (
     <>
       <Navbar key="md" className="bg-body-tertiary ">
-        <Container fluid className="bg-dark">
+        <Container fluid className="" style={{ background: "rgb(233 151 68)" }}>
           <Navbar.Brand
             className="text-white"
             href="/"
@@ -29,8 +34,24 @@ function TopNavbar() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end gap-3 p-2 flex-grow-1 pe-3 text-white">
-                <FontAwesomeIcon className="m-2" icon={faShoppingCart} />
-                <FontAwesomeIcon className="m-2" icon={faSignInAlt} />
+                <span className="position-relative mt-2">
+                  <FontAwesomeIcon className="m-2" icon={faHeart} />
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    99
+                  </span>
+                </span>
+                <span className="position-relative mt-2">
+                  <FontAwesomeIcon className="m-2" icon={faShoppingCart} />
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    10
+                  </span>
+                </span>
+                <span className="position-relative mt-2">
+                  <FontAwesomeIcon
+                    className="m-2 "
+                    icon={faArrowRightToBracket}
+                  />
+                </span>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

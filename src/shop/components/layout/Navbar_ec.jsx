@@ -101,12 +101,18 @@ function ShopNavbar() {
                             ))}
                           </ul>
                         </li>
-                        <Nav.Link as={Link} to="/service">
-                          <li className="dropdown">Service</li>
-                        </Nav.Link>
-                        <Nav.Link as={Link} to="/contact-us">
-                          <li className="dropdown">Contact Us</li>
-                        </Nav.Link>
+
+                        <li className="dropdown">
+                          <Nav.Link as={Link} to="/service">
+                            Service
+                          </Nav.Link>
+                        </li>
+
+                        <li className="dropdown">
+                          <Nav.Link as={Link} to="/contact-us">
+                            Contact Us
+                          </Nav.Link>
+                        </li>
                       </ul>
                     </div>
                   </div>

@@ -16,6 +16,7 @@ function ShopNavbar() {
   const location = useLocation();
   const [url, setUrl] = useState(null);
   const [showNavDropdown, setShowNavDropdown] = useState(false);
+  const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
   const { categories } = useSelector((state) => state.categories);
   const navigate = useNavigate();
   const {
@@ -43,6 +44,10 @@ function ShopNavbar() {
     setShowNavDropdown(false);
   };
 
+  const handleOffcanvasToggle = () => {
+    setIsOffcanvasOpen(!isOffcanvasOpen); // Toggle the state when the offcanvas is opened/closed
+  };
+
   const onSubmit = (data) => {
     try {
       navigate(`/shop?productName=${data.productName}`);
@@ -50,6 +55,7 @@ function ShopNavbar() {
       console.log(error);
     }
   };
+  console.log(isOffcanvasOpen);
   return (
     <>
       <Navbar
@@ -59,13 +65,17 @@ function ShopNavbar() {
         style={{ borderBottom: "1px solid #e8e9ea" }}
       >
         <Container fluid className="nav-container">
-          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
+          <Navbar.Toggle
+            aria-controls="offcanvasNavbar-expand-md"
+            onClick={handleOffcanvasToggle}
+          />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-md"
             aria-labelledby="offcanvasNavbarLabel-expand-md"
             placement="end"
+            show={isOffcanvasOpen}
           >
-            <Offcanvas.Header closeButton>
+            <Offcanvas.Header closeButton onClick={handleOffcanvasToggle}>
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
                 Menu
               </Offcanvas.Title>
@@ -102,7 +112,10 @@ function ShopNavbar() {
                 </Nav.Link>
               </Nav>
               {/* <Nav className="justify-content-center flex-grow-2 pe-3"> */}
-              <Form className="d-flex">
+              <form
+                className="d-flex "
+                id={isOffcanvasOpen ? `header-search-form` : ``}
+              >
                 <input
                   type="text"
                   placeholder="Search"
@@ -117,7 +130,7 @@ function ShopNavbar() {
                 >
                   Search
                 </Button>
-              </Form>
+              </form>
               {/* </Nav> */}
             </Offcanvas.Body>
           </Navbar.Offcanvas>
