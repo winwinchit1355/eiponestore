@@ -8,14 +8,14 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 function TopNavbar() {
   return (
     <>
-      <Navbar
-        key="md"
-        className="bg-body-tertiary "
-        style={{ borderBottom: "1px solid #eeeeee" }}
-      >
-        <Container fluid className="bg-white">
-          <Navbar.Brand className="" href="/" style={{ paddingLeft: "30px" }}>
-            <i className="fa-solid fa-phone"></i>+95 9xxxx
+      <Navbar key="md" className="bg-body-tertiary ">
+        <Container fluid className="bg-dark">
+          <Navbar.Brand
+            className="text-white"
+            href="/"
+            style={{ paddingLeft: "30px" }}
+          >
+            Su Su Store
           </Navbar.Brand>
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-md"
@@ -28,21 +28,7 @@ function TopNavbar() {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end gap-3 p-2 flex-grow-1 pe-3 ">
-                <div className="header-search">
-                  <form className="ec-btn-group-form" action="#">
-                    <input
-                      className="form-control ec-search-bar"
-                      placeholder="Search products..."
-                      type="text"
-                    />
-                    <button className="submit" type="submit">
-                      <i className="fi-rr-search" />
-                    </button>
-                  </form>
-                </div>
-              </Nav>
-              <Nav className="justify-content-end gap-3 p-2 flex-grow-1 pe-3 ">
+              <Nav className="justify-content-end gap-3 p-2 flex-grow-1 pe-3 text-white">
                 <FontAwesomeIcon className="m-2" icon={faShoppingCart} />
                 <FontAwesomeIcon className="m-2" icon={faSignInAlt} />
               </Nav>

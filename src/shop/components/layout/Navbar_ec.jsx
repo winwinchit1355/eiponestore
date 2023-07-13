@@ -58,7 +58,7 @@ function ShopNavbar() {
         className="bg-body-tertiary"
         style={{ borderBottom: "1px solid #e8e9ea" }}
       >
-        <Container fluid className="nav-container">
+        <Container fluid className="">
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
           <Navbar.Offcanvas
             id="offcanvasNavbar-expand-md"
@@ -72,53 +72,46 @@ function ShopNavbar() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-center flex-grow-1 ps-5 ms-5">
-                <Nav.Link as={Link} to="/">
-                  Home
-                </Nav.Link>
-                <NavDropdown
-                  title="Shop"
-                  id={`offcanvasNavbarDropdown-expand-md`}
-                  // show={showNavDropdown}
-                  // onSelect={handleNavDropdownSelect}
-                  // onMouseEnter={() => setShowNavDropdown(true)}
-                  // onMouseLeave={() => setShowNavDropdown(false)}
-                >
-                  {categories?.map((category, index) => (
-                    <Link
-                      key={index}
-                      to={`/shop?category=${category.slug}`}
-                      className="dropdown-item"
-                      // onClick={handleNavDropdownClick}
-                    >
-                      {category.name}
-                    </Link>
-                  ))}
-                </NavDropdown>
-                <Nav.Link as={Link} to="/service">
-                  Service
-                </Nav.Link>
-                <Nav.Link as={Link} to="/contact-us">
-                  Contact Us
-                </Nav.Link>
+                <div className="row">
+                  <div className="col-md-12 align-self-center">
+                    <div className="ec-main-menu">
+                      <a className="ec-header-btn ec-sidebar-toggle">
+                        <i className="fi fi-rr-apps" />
+                      </a>
+                      <ul>
+                        <li>
+                          <Nav.Link as={Link} to="/">
+                            Home
+                          </Nav.Link>
+                        </li>
+
+                        <li className="dropdown">
+                          <Nav.Link>Categories</Nav.Link>
+                          <ul className="sub-menu">
+                            {categories?.map((category, index) => (
+                              <li key={index}>
+                                <Link
+                                  to={`/shop?category=${category.slug}`}
+                                  className=""
+                                  // onClick={handleNavDropdownClick}
+                                >
+                                  {category.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                        <Nav.Link as={Link} to="/service">
+                          <li className="dropdown">Service</li>
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/contact-us">
+                          <li className="dropdown">Contact Us</li>
+                        </Nav.Link>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </Nav>
-              {/* <Nav className="justify-content-center flex-grow-2 pe-3"> */}
-              <Form className="d-flex">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="product-search form-control"
-                  aria-label="Search"
-                  name="productName"
-                  {...register("productName")}
-                />
-                <Button
-                  className="btn btn-dark btn-ecommerce"
-                  onClick={handleSubmit(onSubmit)}
-                >
-                  Search
-                </Button>
-              </Form>
-              {/* </Nav> */}
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
