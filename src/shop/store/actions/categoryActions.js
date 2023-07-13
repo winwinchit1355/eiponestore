@@ -1,4 +1,4 @@
-import { categoryActionType,constants } from "../../consts/index";
+import { apiBaseUrls,categoryActionType,constants } from "../../consts/index";
 import { apiCall } from "../../services/apiService";
 
 export function fetchCategories(params) {
@@ -7,7 +7,7 @@ export function fetchCategories(params) {
       type: constants.IS_LOADING,
       payload: true
     })
-    const response = await apiCall.get("categories", params);
+    const response = await apiCall.get(apiBaseUrls.CATEGORIES, params);
     dispatch({
       type: categoryActionType.FETCH_CATEGORIES,
       payload: response.data,

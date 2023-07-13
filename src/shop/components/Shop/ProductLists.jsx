@@ -7,7 +7,7 @@ function ProductLists({ products }) {
           {products ? (
             products.map((product) => (
               <div key={product.id} className="col">
-                <div className="card">
+                <div className="card product-card">
                   <div className="position-relative overflow-hidden text-center">
                     <div className="add-cart position-absolute top-0 end-0 mt-3 me-2">
                       <a title="Add to card" href="#" className="no-underline">

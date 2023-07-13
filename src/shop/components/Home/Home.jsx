@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import AdsCards from "./AdsCards";
-import HomeBanner from "./Banner";
+import HomeBanner from "./HomeBanner";
 import FeatureProducts from "./FeatureProducts";
 import { useEffect } from "react";
 import { fetchProducts, fetchFeatureProducts } from "../../store/actions";
@@ -22,7 +22,8 @@ function Home() {
   return (
     <div>
       <HomeBanner />
-      <AdsCards />
+      {/* <AdsCards /> */}
+      {/* <CategoryProduct/> */}
       {featureProducts?<FeatureProducts products={featureProducts?.data} />
       :<LoadingPage/>}
       {products?<NewArriavalProducts products={products?.data} />

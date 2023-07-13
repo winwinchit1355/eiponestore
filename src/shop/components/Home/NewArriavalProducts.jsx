@@ -4,16 +4,21 @@ import "@fortawesome/fontawesome-free/css/all.css";
 function NewArriavalProducts({ products }) {
   return (
     <div className="container mb-5">
-      <div className="separator pb-4 mb-4">
-        <div className="line"></div>
+      <div className="col-md-12  mb-4 text-center">
+      <div className="section-title">
+          <h2 className="ec-bg-title">New Arrival Collection</h2>
+          <h2 className="ec-title">New Arrival Collection</h2>
+          <p className="sub-title">Browse The Collection of Top Products</p>
+        </div>
+        {/* <div className="line"></div>
         <h5 className="mb-0 fw-bold separator-title">NEW ARRIAVAL PRODUCTS</h5>
-        <div className="line"></div>
+        <div className="line"></div> */}
       </div>
       <div className="product-grid">
         <div className="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4 g-3 g-sm-4">
           {products?.map((product) => (
             <div key={product.id} className="col">
-              <div className="card">
+              <div className="card product-card">
                 <div className="position-relative overflow-hidden">
                   <div className="add-cart position-absolute top-0 end-0 mt-3 me-1">
                     <a title="Add to card" href="#" className="no-underline">

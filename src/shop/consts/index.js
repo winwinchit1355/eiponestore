@@ -18,5 +18,8 @@ export const apiBaseUrls = {
   PRODUCTS: "products",
   SHOP: "shop",
   PRODUCT_DETAIL: "product-detail",
+  LOGIN: "login",
+  LOGOUT: "logout",
+  REGISTER: "register",
 };
 export const SET_LOADING = "SET_LOADING";

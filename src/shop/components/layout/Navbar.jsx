@@ -11,6 +11,8 @@ import { fetchCategories } from "../../store/actions";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import LoadingPage from "./../Home/loadingPage";
+import { Dropdown } from "react-bootstrap";
 
 function ShopNavbar() {
   const location = useLocation();
@@ -55,7 +57,6 @@ function ShopNavbar() {
       console.log(error);
     }
   };
-  console.log(isOffcanvasOpen);
   return (
     <>
       <Navbar
@@ -85,25 +86,35 @@ function ShopNavbar() {
                 <Nav.Link as={Link} to="/">
                   Home
                 </Nav.Link>
-                <NavDropdown
-                  title="Shop"
-                  id={`offcanvasNavbarDropdown-expand-md`}
-                  // show={showNavDropdown}
-                  // onSelect={handleNavDropdownSelect}
-                  // onMouseEnter={() => setShowNavDropdown(true)}
-                  // onMouseLeave={() => setShowNavDropdown(false)}
-                >
-                  {categories?.map((category, index) => (
-                    <Link
-                      key={index}
-                      to={`/shop?category=${category.slug}`}
-                      className="dropdown-item"
-                      // onClick={handleNavDropdownClick}
-                    >
-                      {category.name}
-                    </Link>
-                  ))}
-                </NavDropdown>
+                
+                <Dropdown id={`offcanvasNavbarDropdown-expand-md`}>
+                  <Dropdown.Header class="nav-link">
+                    Shop
+                    <i
+                      className="fa-solid fa-caret-left fa-rotate-270"
+                      style={{ fontSize: "13px", marginLeft: "5px" }}
+                    ></i>
+                  </Dropdown.Header>
+                  <ul className="dropdown-menu dropdown-menu-center">
+                    {categories ? (
+                      categories.map((category, index) => (
+                        <li key={index}>
+                          <Link
+                            className="dropdown-item"
+                            as={Link}
+                            to={`/shop?category=${category.slug}`}
+                          >
+                            {category.name}
+                          </Link>
+                        </li>
+                      ))
+                    ) : (
+                      <div style={{ maxHeight: "20px" }}>
+                        <LoadingPage />
+                      </div>
+                    )}
+                  </ul>
+                </Dropdown>
                 <Nav.Link as={Link} to="/service">
                   Service
                 </Nav.Link>

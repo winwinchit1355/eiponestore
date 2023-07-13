@@ -2,13 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
   faHeart,
-  faArrowRightToBracket,
-  faArrowRightFromBracket,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { Dropdown } from "react-bootstrap";
 
 function TopNavbar() {
   return (
@@ -46,11 +46,32 @@ function TopNavbar() {
                     10
                   </span>
                 </span>
-                <span className="position-relative mt-2">
-                  <FontAwesomeIcon
-                    className="m-2 "
-                    icon={faArrowRightToBracket}
-                  />
+                <span className="position-relative mt-1">
+                  <Dropdown>
+                    <Dropdown.Header>
+                      <FontAwesomeIcon
+                        className="m-2 text-white"
+                        icon={faUser}
+                      />
+                    </Dropdown.Header>
+                    <ul className="dropdown-menu dropdown-menu-right">
+                      <li>
+                        <a className="dropdown-item" href="register.html">
+                          Register
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="checkout.html">
+                          Checkout
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="login.html">
+                          Login
+                        </a>
+                      </li>
+                    </ul>
+                  </Dropdown>
                 </span>
               </Nav>
             </Offcanvas.Body>
