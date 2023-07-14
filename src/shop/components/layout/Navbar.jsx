@@ -88,7 +88,7 @@ function ShopNavbar() {
                 </Nav.Link>
                 
                 <Dropdown id={`offcanvasNavbarDropdown-expand-md`}>
-                  <Dropdown.Header class="nav-link">
+                  <Dropdown.Header className="nav-link">
                     Shop
                     <i
                       className="fa-solid fa-caret-left fa-rotate-270"
