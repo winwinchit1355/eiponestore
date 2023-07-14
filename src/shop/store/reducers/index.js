@@ -11,5 +11,7 @@ export const reducers = combineReducers({
   shopProducts: productReducer,
   product: productReducer,
   loading: loadingReducer,
-  auth: authReducer
+  isLoggedIn: authReducer,
+  register: authReducer,
+  logout: authReducer,
 });

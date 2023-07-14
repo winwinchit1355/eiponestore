@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { apiBaseUrls,constants,Tokens } from "../../consts/index";
 import { apiCall } from "../../services/apiService";
 
@@ -9,9 +10,13 @@ export function login(params) {
     })
     const response = await apiCall.post(apiBaseUrls.LOGIN, params);
     localStorage.setItem(Tokens.CUSTOMER,response.access_token);
+    var isLogIn=false;
+    if(response.access_token){
+       isLogIn=true;
+    }
     dispatch({
       type: apiBaseUrls.LOGIN,
-      payload: response,
+      payload: isLogIn,
     });
     dispatch({
       type: constants.IS_LOADING,
@@ -21,20 +26,14 @@ export function login(params) {
 }
 export function logout(params) {
   return async (dispatch) => {
-    dispatch({
-      type: constants.IS_LOADING,
-      payload: true
-    })
+    
     const response = await apiCall.post(apiBaseUrls.LOGOUT,params);
     localStorage.removeItem(Tokens.CUSTOMER);
     dispatch({
       type: apiBaseUrls.LOGOUT,
       payload: response,
     });
-    dispatch({
-      type: constants.IS_LOADING,
-      payload: false
-    })
+    
   };
 }
 export function register(params) {

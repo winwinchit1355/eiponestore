@@ -9,8 +9,27 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Dropdown } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Tokens, apiBaseUrls, routes } from "../../consts";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { logout } from "../../store/actions/authActions";
 
 function TopNavbar() {
+  const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
+  const { isLoggedIn  } = useSelector((state) => state.isLoggedIn);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // console.log(login);
+  const handleLogout = () =>{
+    dispatch(logout()).then(() => {
+      navigate(routes.HOME);
+  });
+  }
+  useEffect(() => {
+    setToken(localStorage.getItem(Tokens.CUSTOMER));
+  }, [isLoggedIn]);
   return (
     <>
       <Navbar key="md" className="bg-body-tertiary ">
@@ -46,7 +65,7 @@ function TopNavbar() {
                     10
                   </span>
                 </span>
-                <span className="position-relative mt-1">
+                <span className="position-relative mt-2">
                   <Dropdown>
                     <Dropdown.Header>
                       <FontAwesomeIcon
@@ -55,21 +74,32 @@ function TopNavbar() {
                       />
                     </Dropdown.Header>
                     <ul className="dropdown-menu dropdown-menu-right">
-                      <li>
-                        <a className="dropdown-item" href="register.html">
-                          Register
-                        </a>
-                      </li>
-                      <li>
+                    {token?
+                      <><li>
                         <a className="dropdown-item" href="checkout.html">
                           Checkout
                         </a>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="/login">
+                        <a className="dropdown-item" onClick={handleLogout}>
+                          Logout
+                        </a>
+                      </li></>
+                      :
+                      <>
+                      <li>
+                        <a className="dropdown-item" href={apiBaseUrls.REGISTER}>
+                          Register
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href={apiBaseUrls.LOGIN}>
                           Login
                         </a>
                       </li>
+                      </>}
+                      
+                      
                     </ul>
                   </Dropdown>
                 </span>

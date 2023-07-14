@@ -13,8 +13,10 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import LoadingPage from "./../Home/loadingPage";
 import { Dropdown } from "react-bootstrap";
+import { Tokens } from "../../consts";
 
 function ShopNavbar() {
+  const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
   const location = useLocation();
   const [url, setUrl] = useState(null);
   const [showNavDropdown, setShowNavDropdown] = useState(false);
@@ -36,7 +38,7 @@ function ShopNavbar() {
     setUrl(location.pathname);
     dispatch(fetchCategories());
     setValue("productName", productName || "");
-  }, [productName]);
+  }, [productName,token]);
 
   const handleNavDropdownSelect = () => {
     setShowNavDropdown(false);

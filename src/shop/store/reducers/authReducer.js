@@ -1,12 +1,13 @@
-import { apiBaseUrls } from "../../consts/index";
+import {  apiBaseUrls } from "../../consts/index";
+
 export const authReducer = (state = [], action) => {
   switch (action.type) {
     case apiBaseUrls.LOGIN:
-      return { ...state, logins: action.payload };
+      return { ...state, isLoggedIn: action.payload };
     case apiBaseUrls.LOGOUT:
-      return { ...state, featureProducts: action.payload };
+      return { ...state, logout: action.payload };
     case apiBaseUrls.REGISTER:
-      return { ...state, shopProducts: action.payload };
+      return { ...state, register: action.payload };
     default:
       return state;
   }
