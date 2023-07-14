@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { categoryReducer } from "./categoryReducer";
 import { productReducer } from "./productReducer";
 import { loadingReducer } from "./loadingReducer";
+import { authReducer } from "./authReducer";
 
 export const reducers = combineReducers({
   categories: categoryReducer,
@@ -10,4 +11,5 @@ export const reducers = combineReducers({
   shopProducts: productReducer,
   product: productReducer,
   loading: loadingReducer,
+  auth: authReducer
 });

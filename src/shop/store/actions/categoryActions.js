@@ -8,6 +8,7 @@ export function fetchCategories(params) {
       payload: true
     })
     const response = await apiCall.get(apiBaseUrls.CATEGORIES, params);
+    
     dispatch({
       type: categoryActionType.FETCH_CATEGORIES,
       payload: response.data,

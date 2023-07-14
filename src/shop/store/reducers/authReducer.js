@@ -1,5 +1,5 @@
 import { apiBaseUrls } from "../../consts/index";
-export const loginReducer = (state = [], action) => {
+export const authReducer = (state = [], action) => {
   switch (action.type) {
     case apiBaseUrls.LOGIN:
       return { ...state, logins: action.payload };

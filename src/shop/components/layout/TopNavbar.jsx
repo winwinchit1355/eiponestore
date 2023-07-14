@@ -66,7 +66,7 @@ function TopNavbar() {
                         </a>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="login.html">
+                        <a className="dropdown-item" href="/login">
                           Login
                         </a>
                       </li>

@@ -109,9 +109,14 @@ function ShopNavbar() {
                         </li>
                       ))
                     ) : (
-                      <div style={{ maxHeight: "20px" }}>
-                        <LoadingPage />
-                      </div>
+                      <li >
+                          <Link
+                            className="dropdown-item"
+                            
+                          >
+                            Loading...
+                          </Link>
+                        </li>
                     )}
                   </ul>
                 </Dropdown>

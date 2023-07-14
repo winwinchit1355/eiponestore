@@ -22,4 +22,12 @@ export const apiBaseUrls = {
   LOGOUT: "logout",
   REGISTER: "register",
 };
+
+export const routes={
+  HOME:'/'
+}
+export const Tokens={
+  ADMIN:'adminToken',
+  CUSTOMER:'customerToken'
+}
 export const SET_LOADING = "SET_LOADING";
