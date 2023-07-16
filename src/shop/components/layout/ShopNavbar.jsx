@@ -1,9 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -90,7 +88,7 @@ function ShopNavbar() {
                   </Dropdown.Header>
                   <ul className="dropdown-menu dropdown-menu-center">
                     {categories ? (
-                      categories.map((category, index) => (
+                      categories.data.map((category, index) => (
                         <li key={index}>
                           <Link
                             className="dropdown-item"

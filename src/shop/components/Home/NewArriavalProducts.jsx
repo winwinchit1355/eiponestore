@@ -16,7 +16,7 @@ function NewArriavalProducts({ products }) {
       </div>
       <div className="product-grid">
         <div className="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4 g-3 g-sm-4">
-          {products?.map((product) => (
+          {products.data.map((product) => (
             <div key={product.id} className="col">
               <div className="card product-card">
                 <div className="position-relative overflow-hidden">

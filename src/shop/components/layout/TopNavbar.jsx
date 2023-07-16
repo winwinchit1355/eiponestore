@@ -20,6 +20,7 @@ function TopNavbar() {
   const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
   const { isLoggedIn  } = useSelector((state) => state.isLoggedIn);
   const { count  } = useSelector((state) => state.count);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
@@ -29,10 +30,11 @@ function TopNavbar() {
   });
   }
   useEffect(() => {
-    if(token){
-      dispatch(fetchCartItemCount());
-    }
-    setToken(localStorage.getItem(Tokens.CUSTOMER));//if click login/logout button , watch token changes
+    // console.log(token);
+    
+    dispatch(fetchCartItemCount());
+    
+    setToken(localStorage.getItem(Tokens.CUSTOMER));//to change dropdown items
   }, [isLoggedIn,token,count]);
   return (
     <>

@@ -1,12 +1,13 @@
-import { Tokens, apiBaseUrls, cartActionType } from "../../consts/index";
+import { apiBaseUrls, cartActionType } from "../../consts/index";
 import { apiCall } from "../../services/apiService";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { serverUrl } from './../../../environment';
 
 export function fetchCartItems(params) {
   return async (dispatch) => {
-    let Url = apiBaseUrls.CARTITEM + params;
-    const response = await apiCall.get(Url);
+    let Url = serverUrl+'/'+apiBaseUrls.CARTITEM + params;
+    const response = await apiCall(Url, "get");
     dispatch({
       type: cartActionType.FETCH_CARTITEMS,
       payload: response.data,
@@ -14,47 +15,26 @@ export function fetchCartItems(params) {
   };
 }
 export function fetchCartItemCount(params) {
-  
   return async (dispatch) => {
-    let Url = apiBaseUrls.GET_CARTITEM_COUNT;
-    const token = localStorage.getItem(Tokens.CUSTOMER);
-    
-    if (token) {
-      const headersWithToken = {
-        Authorization: `Bearer ${token}`,
-      };
-      console.log(headersWithToken)
-      const response = await apiCall.get(Url,params, {
-        headers: headersWithToken,
-      });
-      dispatch({
-        type: cartActionType.FETCH_CARTITEM_COUNT,
-        payload: response.data,
-      });
-    }
-    
+    let Url = serverUrl+'/'+apiBaseUrls.GET_CARTITEM_COUNT;
+    const response = await apiCall(Url, "get");
+    dispatch({
+      type: cartActionType.FETCH_CARTITEM_COUNT,
+      payload: response.data,
+    });
   };
 }
 export function addToCart(params) {
   return async (dispatch) => {
-    let Url = apiBaseUrls.ADD_TO_CART + params;
-
-    const token = localStorage.getItem(Tokens.CUSTOMER);
-    if (token) {
-      const headersWithToken = {
-        Authorization: `Bearer ${token}`,
-      };
-      const response = await apiCall.post(Url, params, {
-        headers: headersWithToken,
-      });
-      toast.success(response.message);
-      dispatch({
-        type: cartActionType.ADD_TO_CART,
-        payload: response.data,
-      });
-      dispatch({
-        type: cartActionType.FETCH_CARTITEM_COUNT,
-      });
-    }
+    let Url = serverUrl+'/'+apiBaseUrls.ADD_TO_CART + params;
+    const response = await apiCall(Url, "post");
+    toast.success(response.data.message);
+    dispatch({
+      type: cartActionType.ADD_TO_CART,
+      payload: response.data,
+    });
+    dispatch({
+      type: cartActionType.FETCH_CARTITEM_COUNT,
+    });
   };
 }
