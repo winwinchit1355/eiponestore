@@ -18,8 +18,7 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-//   const { isLoggedIn  } = useSelector((state) => state.isLoggedIn);
-//   console.log(isLoggedIn)
+  // const { count  } = useSelector((state) => state.count);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
@@ -28,11 +27,11 @@ function Login() {
         navigate(routes.HOME);
     });
   };
-  
+
   return (
     <div className="container">
       <div className="row ">
-        <div className="col-12 mt-4">          
+        <div className="col-12 my-4">          
           <Card style={{ width: "28rem", margin: "auto" }}>
             <Card.Body>
               <Card.Title className="text-center">Login</Card.Title>

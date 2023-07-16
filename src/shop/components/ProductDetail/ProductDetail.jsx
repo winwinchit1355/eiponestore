@@ -1,20 +1,24 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
-import { useParams } from "react-router-dom";
-import { fetchProductDetail } from "../../store/actions";
+import { useNavigate, useParams } from "react-router-dom";
+import { fetchProductDetail,addToCart } from "../../store/actions";
+import { Tokens, routes } from "../../consts";
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProductDetail() {
   const { slug } = useParams();
   const params = "/" + slug;
   const { product } = useSelector((state) => state.product);
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductDetail(params));
   }, []);
   const handleDecrease = () => {
     const quantityInput = document.getElementById("quantity");
-    let quantity = parseInt(quantityInput.value, 10);
+    let quantity = parseInt(quantityInput.value);
     if (quantity > 1) {
       quantity -= 1;
     }
@@ -23,8 +27,10 @@ function ProductDetail() {
 
   const handleIncrease = () => {
     const quantityInput = document.getElementById("quantity");
-    let quantity = parseInt(quantityInput.value, 10);
-    quantity += 1;
+    let quantity = parseInt(quantityInput.value);
+    if(product?.quantity>quantity){
+      quantity += 1;
+    }
     quantityInput.value = quantity;
   };
   const handleInputChange = (event) => {
@@ -33,8 +39,20 @@ function ProductDetail() {
       quantityInput.value = 1;
     }
   };
+  const handleAddToCart = () =>{
+    const token=localStorage.getItem(Tokens.CUSTOMER);
+    if(!token)
+    {
+      navigate(routes.LOGIN);
+    }
+    const quantityInput = document.getElementById("quantity");
+    let quantity = parseInt(quantityInput.value);
+    const params = `?id=${product?.uuid}&quantity=${quantity}`;
+    dispatch(addToCart(params)); 
+  }
   return (
-    <main className="mt-3">
+    <main className="mt-3">   
+
       <div className="container margin_30">
         <div className="countdown_inner">
           -20% This offer ends in{" "}
@@ -78,7 +96,7 @@ function ProductDetail() {
                 <em>4 reviews</em>
               </span>
               <p>
-                <small>SKU: {product?.sku}</small>
+                <small>SKU: {product?.SKU}</small>
                 <br />
                 {product?.desc}
               </p>
@@ -112,20 +130,35 @@ function ProductDetail() {
                         <i className="fa fa-solid fa-plus"></i>
                       </button>
                     </div>
+                    <div className="d-flex align-items-center justify-content-center">
+                    <span className="text-muted">{product?.quantity} item(s) left.</span>
+                    </div>    
                   </div>
                 </div>
               </div>
               <div className="row">
                 <div className="col-lg-5 col-md-6">
                   <div className="price_main">
-                    <span className="new_price">$148.00</span>
+                  {product?.discount_price != 0 ? (
+                      <>
+                        <div className="h6 fw-light fw-bold text-secondary text-decoration-line-through">
+                          {product?.price} MMK
+                        </div>
+                        <div className="h6 fw-bold">
+                          {product?.discount_price} MMK
+                        </div>
+                      </>
+                    ) : (
+                      <div className="h6 fw-bold">{product?.price} MMK</div>
+                    )}
+                    {/* <span className="new_price">$148.00</span>
                     <span className="percentage">-20%</span>{" "}
-                    <span className="old_price">$160.00</span>
+                    <span className="old_price">$160.00</span> */}
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-6">
                   <div className="btn_add_to_cart">
-                    <a href="#0" className="btn btn-dark btn-ecommerce">
+                    <a onClick={handleAddToCart} className="btn btn-dark btn-ecommerce">
                       Add to Cart
                     </a>
                   </div>
@@ -241,7 +274,7 @@ function ProductDetail() {
                     <div className="col-lg-5">
                       <h3>Specifications</h3>
                       <div className="table-responsive">
-                        <table className="table table-sm table-striped">
+                        <table className="table table-sm table-striped table-bordered">
                           <tbody>
                             <tr>
                               <td>
@@ -412,394 +445,7 @@ function ProductDetail() {
         </div>
         {/* /container */}
       </div>
-      {/* /tab_content_wrapper */}
-      <div className="container margin_60_35">
-        <div className="main_title">
-          <h2>Related</h2>
-          <span>Products</span>
-          <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
-        </div>
-        <div className="owl-carousel owl-theme products_carousel">
-          <div className="item">
-            <div className="grid_item">
-              <span className="ribbon new">New</span>
-              <figure>
-                <a href="product-detail-1.html">
-                  <img
-                    className="owl-lazy"
-                    src="img/products/product_placeholder_square_medium.jpg"
-                    data-src="img/products/shoes/4.jpg"
-                    alt=""
-                  />
-                </a>
-              </figure>
-              <div className="rating">
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star" />
-              </div>
-              <a href="product-detail-1.html">
-                <h3>ACG React Terra</h3>
-              </a>
-              <div className="price_box">
-                <span className="new_price">$110.00</span>
-              </div>
-              <ul>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to favorites"
-                  >
-                    <i className="ti-heart" />
-                    <span>Add to favorites</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to compare"
-                  >
-                    <i className="ti-control-shuffle" />
-                    <span>Add to compare</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to cart"
-                  >
-                    <i className="ti-shopping-cart" />
-                    <span>Add to cart</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* /grid_item */}
-          </div>
-          {/* /item */}
-          <div className="item">
-            <div className="grid_item">
-              <span className="ribbon new">New</span>
-              <figure>
-                <a href="product-detail-1.html">
-                  <img
-                    className="owl-lazy"
-                    src="img/products/product_placeholder_square_medium.jpg"
-                    data-src="img/products/shoes/5.jpg"
-                    alt=""
-                  />
-                </a>
-              </figure>
-              <div className="rating">
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star" />
-              </div>
-              <a href="product-detail-1.html">
-                <h3>Air Zoom Alpha</h3>
-              </a>
-              <div className="price_box">
-                <span className="new_price">$140.00</span>
-              </div>
-              <ul>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to favorites"
-                  >
-                    <i className="ti-heart" />
-                    <span>Add to favorites</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to compare"
-                  >
-                    <i className="ti-control-shuffle" />
-                    <span>Add to compare</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to cart"
-                  >
-                    <i className="ti-shopping-cart" />
-                    <span>Add to cart</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* /grid_item */}
-          </div>
-          {/* /item */}
-          <div className="item">
-            <div className="grid_item">
-              <span className="ribbon hot">Hot</span>
-              <figure>
-                <a href="product-detail-1.html">
-                  <img
-                    className="owl-lazy"
-                    src="img/products/product_placeholder_square_medium.jpg"
-                    data-src="img/products/shoes/8.jpg"
-                    alt=""
-                  />
-                </a>
-              </figure>
-              <div className="rating">
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star" />
-              </div>
-              <a href="product-detail-1.html">
-                <h3>Air Color 720</h3>
-              </a>
-              <div className="price_box">
-                <span className="new_price">$120.00</span>
-              </div>
-              <ul>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to favorites"
-                  >
-                    <i className="ti-heart" />
-                    <span>Add to favorites</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to compare"
-                  >
-                    <i className="ti-control-shuffle" />
-                    <span>Add to compare</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to cart"
-                  >
-                    <i className="ti-shopping-cart" />
-                    <span>Add to cart</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* /grid_item */}
-          </div>
-          {/* /item */}
-          <div className="item">
-            <div className="grid_item">
-              <span className="ribbon off">-30%</span>
-              <figure>
-                <a href="product-detail-1.html">
-                  <img
-                    className="owl-lazy"
-                    src="img/products/product_placeholder_square_medium.jpg"
-                    data-src="img/products/shoes/2.jpg"
-                    alt=""
-                  />
-                </a>
-              </figure>
-              <div className="rating">
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star" />
-              </div>
-              <a href="product-detail-1.html">
-                <h3>Okwahn II</h3>
-              </a>
-              <div className="price_box">
-                <span className="new_price">$90.00</span>
-                <span className="old_price">$170.00</span>
-              </div>
-              <ul>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to favorites"
-                  >
-                    <i className="ti-heart" />
-                    <span>Add to favorites</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to compare"
-                  >
-                    <i className="ti-control-shuffle" />
-                    <span>Add to compare</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to cart"
-                  >
-                    <i className="ti-shopping-cart" />
-                    <span>Add to cart</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* /grid_item */}
-          </div>
-          {/* /item */}
-          <div className="item">
-            <div className="grid_item">
-              <span className="ribbon off">-50%</span>
-              <figure>
-                <a href="product-detail-1.html">
-                  <img
-                    className="owl-lazy"
-                    src="img/products/product_placeholder_square_medium.jpg"
-                    data-src="img/products/shoes/3.jpg"
-                    alt=""
-                  />
-                </a>
-              </figure>
-              <div className="rating">
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star voted" />
-                <i className="icon-star" />
-              </div>
-              <a href="product-detail-1.html">
-                <h3>Air Wildwood ACG</h3>
-              </a>
-              <div className="price_box">
-                <span className="new_price">$75.00</span>
-                <span className="old_price">$155.00</span>
-              </div>
-              <ul>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to favorites"
-                  >
-                    <i className="ti-heart" />
-                    <span>Add to favorites</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to compare"
-                  >
-                    <i className="ti-control-shuffle" />
-                    <span>Add to compare</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#0"
-                    className="tooltip-1"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="left"
-                    title="Add to cart"
-                  >
-                    <i className="ti-shopping-cart" />
-                    <span>Add to cart</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* /grid_item */}
-          </div>
-          {/* /item */}
-        </div>
-        {/* /products_carousel */}
-      </div>
-      {/* /container */}
-      <div className="feat">
-        <div className="container">
-          <ul>
-            <li>
-              <div className="box">
-                <i className="ti-gift" />
-                <div className="justify-content-center">
-                  <h3>Free Shipping</h3>
-                  <p>For all oders over $99</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="box">
-                <i className="ti-wallet" />
-                <div className="justify-content-center">
-                  <h3>Secure Payment</h3>
-                  <p>100% secure payment</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="box">
-                <i className="ti-headphone-alt" />
-                <div className="justify-content-center">
-                  <h3>24/7 Support</h3>
-                  <p>Online top support</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {/*/feat*/}
+      
     </main>
   );
 }

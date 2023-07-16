@@ -11,15 +11,14 @@ import { fetchCategories } from "../../store/actions";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import LoadingPage from "./../Home/loadingPage";
 import { Dropdown } from "react-bootstrap";
 import { Tokens } from "../../consts";
+import { ToastContainer } from "react-toastify";
 
 function ShopNavbar() {
-  const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
+  // const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
   const location = useLocation();
   const [url, setUrl] = useState(null);
-  const [showNavDropdown, setShowNavDropdown] = useState(false);
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
   const { categories } = useSelector((state) => state.categories);
   const navigate = useNavigate();
@@ -38,15 +37,7 @@ function ShopNavbar() {
     setUrl(location.pathname);
     dispatch(fetchCategories());
     setValue("productName", productName || "");
-  }, [productName,token]);
-
-  const handleNavDropdownSelect = () => {
-    setShowNavDropdown(false);
-  };
-
-  const handleNavDropdownClick = () => {
-    setShowNavDropdown(false);
-  };
+  }, [productName]);
 
   const handleOffcanvasToggle = () => {
     setIsOffcanvasOpen(!isOffcanvasOpen); // Toggle the state when the offcanvas is opened/closed
@@ -154,6 +145,7 @@ function ShopNavbar() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
+      <ToastContainer />
     </>
   );
 }

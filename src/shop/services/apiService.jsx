@@ -1,5 +1,6 @@
 import axios from "axios";
 import { serverUrl } from "../../environment";
+import { Tokens } from "../consts";
 
 const headers = {
   "Content-Type": "application/json",
@@ -7,25 +8,27 @@ const headers = {
 };
 
 axios.defaults.headers = headers;
+const token = localStorage.getItem(Tokens.CUSTOMER);
+axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
 export const apiCall = {
-  get: (url, params = []) => {
+  get: (url, params = [],options = {}) => {
     return axios
-      .get(`${serverUrl}/${url}`, { params })
+      .get(`${serverUrl}/${url}`, { params },options)
       .then((response) => response.data);
   },
-  post: (url, data) => {
+  post: (url, data,options = {}) => {
     return axios
-      .post(`${serverUrl}/${url}`, data)
+      .post(`${serverUrl}/${url}`, data,options)
       .then((response) => response.data);
   },
-  put: (url, data) => {
+  put: (url, data,options = {}) => {
     return axios
-      .put(`${serverUrl}/${url}`, data)
+      .put(`${serverUrl}/${url}`, data,options)
       .then((response) => response.data);
   },
-  delete: (url) => {
+  delete: (url,options = {}) => {
     return axios
-      .delete(`${serverUrl}/${url}`)
+      .delete(`${serverUrl}/${url}`,options)
       .then((response) => response.data);
   },
 };

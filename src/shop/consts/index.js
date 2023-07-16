@@ -13,6 +13,16 @@ export const productActionType = {
   FETCH_SHOP_PRODUCTS: "FETCH_SHOP_PRODUCTS",
   FETCH_PRODUCT_DETAIL: "FETCH_PRODUCT_DETAIL",
 };
+
+export const cartActionType = {
+  FETCH_CARTITEMS: "FETCH_CARTITEMS",
+  FETCH_CARTITEM_COUNT: "FETCH_CARTITEM_COUNT",
+  ADD_TO_CART: "ADD_TO_CART",
+}
+export const wishlistActionType = {
+  FETCH_WISHLISTS: "FETCH_WISHLISTS",
+  ADD_TO_WISHLIST: "ADD_TO_WISHLIST",
+}
 export const apiBaseUrls = {
   CATEGORIES: "categories",
   PRODUCTS: "products",
@@ -21,10 +31,16 @@ export const apiBaseUrls = {
   LOGIN: "login",
   LOGOUT: "logout",
   REGISTER: "register",
+  CARTITEM: "cartitems",
+  ADD_TO_CART: "add-to-cart",
+  GET_CARTITEM_COUNT: "get-cartitem-count",
+  WISHLIST: "wishlists",
+  ADD_TO_WISHLIST: "add-to-wishlist",
 };
 
 export const routes={
-  HOME:'/'
+  HOME:'/',
+  LOGIN:'/login'
 }
 export const Tokens={
   ADMIN:'adminToken',

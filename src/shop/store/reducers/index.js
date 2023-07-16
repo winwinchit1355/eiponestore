@@ -3,6 +3,7 @@ import { categoryReducer } from "./categoryReducer";
 import { productReducer } from "./productReducer";
 import { loadingReducer } from "./loadingReducer";
 import { authReducer } from "./authReducer";
+import { cartReducer } from "./cartReducer";
 
 export const reducers = combineReducers({
   categories: categoryReducer,
@@ -13,5 +14,6 @@ export const reducers = combineReducers({
   loading: loadingReducer,
   isLoggedIn: authReducer,
   register: authReducer,
-  logout: authReducer,
+  cartitems: cartReducer,
+  count: cartReducer,
 });

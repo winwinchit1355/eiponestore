@@ -14,22 +14,26 @@ import { Tokens, apiBaseUrls, routes } from "../../consts";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { logout } from "../../store/actions/authActions";
+import { fetchCartItemCount,addToCart } from "../../store/actions";
 
 function TopNavbar() {
   const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
   const { isLoggedIn  } = useSelector((state) => state.isLoggedIn);
-
+  const { count  } = useSelector((state) => state.count);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // console.log(login);
+  
   const handleLogout = () =>{
     dispatch(logout()).then(() => {
       navigate(routes.HOME);
   });
   }
   useEffect(() => {
-    setToken(localStorage.getItem(Tokens.CUSTOMER));
-  }, [isLoggedIn]);
+    if(token){
+      dispatch(fetchCartItemCount());
+    }
+    setToken(localStorage.getItem(Tokens.CUSTOMER));//if click login/logout button , watch token changes
+  }, [isLoggedIn,token,count]);
   return (
     <>
       <Navbar key="md" className="bg-body-tertiary ">
@@ -62,7 +66,7 @@ function TopNavbar() {
                 <span className="position-relative mt-2">
                   <FontAwesomeIcon className="m-2" icon={faShoppingCart} />
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    10
+                    {count}
                   </span>
                 </span>
                 <span className="position-relative mt-2">
