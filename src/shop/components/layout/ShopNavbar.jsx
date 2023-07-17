@@ -16,7 +16,7 @@ import { ToastContainer } from "react-toastify";
 function ShopNavbar() {
   // const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
   const location = useLocation();
-  const [url, setUrl] = useState(null);
+  // const [url, setUrl] = useState(null);
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
   const { categories } = useSelector((state) => state.categories);
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ function ShopNavbar() {
   const searchParams = new URLSearchParams(location.search);
   const productName = searchParams.get("productName");
   useEffect(() => {
-    setUrl(location.pathname);
+    // setUrl(location.pathname);
     dispatch(fetchCategories());
     setValue("productName", productName || "");
   }, [productName]);

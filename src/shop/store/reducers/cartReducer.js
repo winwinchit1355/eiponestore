@@ -1,4 +1,5 @@
 import { cartActionType } from "../../consts/index";
+
 export const cartReducer = (state = [], action) => {
   switch (action.type) {
     case cartActionType.FETCH_CARTITEMS:

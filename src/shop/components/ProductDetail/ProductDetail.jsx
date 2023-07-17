@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchProductDetail,addToCart } from "../../store/actions";
-import { Tokens, routes } from "../../consts";
+import { Tokens, apiBaseUrls, routes } from "../../consts";
 import 'react-toastify/dist/ReactToastify.css';
 
 function ProductDetail() {
   const { slug } = useParams();
   const params = "/" + slug;
-  const { product } = useSelector((state) => state.product);
+  const { productDetail } = useSelector((state) => state.productDetail);
+  const product= productDetail?.data;
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ function ProductDetail() {
     const token=localStorage.getItem(Tokens.CUSTOMER);
     if(!token)
     {
-      navigate(routes.LOGIN);
+      navigate(apiBaseUrls.LOGIN);
     }
     const quantityInput = document.getElementById("quantity");
     let quantity = parseInt(quantityInput.value);

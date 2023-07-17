@@ -24,23 +24,22 @@ export const wishlistActionType = {
   ADD_TO_WISHLIST: "ADD_TO_WISHLIST",
 }
 export const apiBaseUrls = {
-  CATEGORIES: "categories",
-  PRODUCTS: "products",
-  SHOP: "shop",
-  PRODUCT_DETAIL: "product-detail",
-  LOGIN: "login",
-  LOGOUT: "logout",
-  REGISTER: "register",
-  CARTITEM: "cartitems",
-  ADD_TO_CART: "add-to-cart",
-  GET_CARTITEM_COUNT: "get-cartitem-count",
-  WISHLIST: "wishlists",
-  ADD_TO_WISHLIST: "add-to-wishlist",
+  CATEGORIES: "/categories",
+  PRODUCTS: "/products",
+  SHOP: "/shop",
+  PRODUCT_DETAIL: "/product-detail",
+  LOGIN: "/login",
+  LOGOUT: "/logout",
+  REGISTER: "/register",
+  CARTITEM: "/cartitems",
+  ADD_TO_CART: "/add-to-cart",
+  GET_CARTITEM_COUNT: "/get-cartitem-count",
+  WISHLIST: "/wishlists",
+  ADD_TO_WISHLIST: "/add-to-wishlist",
 };
 
 export const routes={
   HOME:'/',
-  LOGIN:'/login'
 }
 export const Tokens={
   ADMIN:'adminToken',

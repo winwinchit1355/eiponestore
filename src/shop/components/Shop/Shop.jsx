@@ -39,7 +39,7 @@ function Shop() {
           <ShopProductSidebar/>
         </div>
         <div className="col-md-9">
-          {loading? <LoadingPage  />:<ProductLists products={shopProducts?.data} />}
+          {loading? <LoadingPage  />:<ProductLists products={shopProducts?.data.data} />}
           
         </div>
       </div>

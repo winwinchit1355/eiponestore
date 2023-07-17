@@ -10,7 +10,7 @@ export const reducers = combineReducers({
   products: productReducer,
   featureProducts: productReducer,
   shopProducts: productReducer,
-  product: productReducer,
+  productDetail: productReducer,
   loading: loadingReducer,
   isLoggedIn: authReducer,
   register: authReducer,

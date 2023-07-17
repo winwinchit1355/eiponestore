@@ -7,18 +7,14 @@ import {
 import { apiCall } from "../../services/apiService";
 import { serverUrl } from "./../../../environment";
 import { setToken,removeToken } from "../../../utils/cache";
+import { toast } from "react-toastify";
 
 export function login(params) {
   return async (dispatch) => {
-    dispatch({
-      type: constants.IS_LOADING,
-      payload: true,
-    });
-
-    let Url = serverUrl + "/" + apiBaseUrls.LOGIN;
+    let Url = serverUrl  + apiBaseUrls.LOGIN;
     const response = await apiCall(Url, "post",params);
     setToken(Tokens.CUSTOMER,response.data.access_token);
-    
+    toast.success(response.data.message, { autoClose: 1000 });
     var isLogIn = false;
     if (response.data.access_token) {
       isLogIn = true;
@@ -27,26 +23,20 @@ export function login(params) {
       type: apiBaseUrls.LOGIN,
       payload: isLogIn,
     });
-    dispatch({
-      type: cartActionType.FETCH_CARTITEM_COUNT,
-    });
-    dispatch({
-      type: constants.IS_LOADING,
-      payload: false,
-    });
   };
 }
 export function logout() {
   return async (dispatch) => {
-    let Url = serverUrl + "/" + apiBaseUrls.LOGOUT;
-    await apiCall(Url, "post");
+    let Url = serverUrl  + apiBaseUrls.LOGOUT;
+    const response=await apiCall(Url, "post");
     removeToken(Tokens.CUSTOMER);
+    toast.success(response.data.message, { autoClose: 1000 });
     dispatch({
       type: apiBaseUrls.LOGOUT,
       payload: false,
     });
     dispatch({
-      type: cartActionType.FETCH_CARTITEM_COUNT,
+      type: cartActionType.FETCH_CARTITEM_COUNT,//after logout ,to clear cartitem count in topnavbar
     });
   };
 }
@@ -56,7 +46,7 @@ export function register(params) {
       type: constants.IS_LOADING,
       payload: true,
     });
-    let Url = serverUrl + "/" + apiBaseUrls.REGISTER+params;
+    let Url = serverUrl + apiBaseUrls.REGISTER+params;
     const response = await apiCall(Url, "post");
     dispatch({
       type: apiBaseUrls.REGISTER,

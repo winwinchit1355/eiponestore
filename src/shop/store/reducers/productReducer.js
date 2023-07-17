@@ -1,4 +1,5 @@
 import { productActionType } from "../../consts/index";
+
 export const productReducer = (state = [], action) => {
   switch (action.type) {
     case productActionType.FETCH_PRODUCTS:
@@ -8,7 +9,7 @@ export const productReducer = (state = [], action) => {
     case productActionType.FETCH_SHOP_PRODUCTS:
       return { ...state, shopProducts: action.payload };
     case productActionType.FETCH_PRODUCT_DETAIL:
-      return { ...state, product: action.payload };
+      return { ...state, productDetail: action.payload };
     default:
       return state;
   }

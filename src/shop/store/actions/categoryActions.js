@@ -8,7 +8,7 @@ export function fetchCategories(params) {
       type: constants.IS_LOADING,
       payload: true
     })
-    let Url=serverUrl+'/'+apiBaseUrls.CATEGORIES;
+    let Url=serverUrl+apiBaseUrls.CATEGORIES;
     const response = await apiCall(Url,'get');
     
     dispatch({

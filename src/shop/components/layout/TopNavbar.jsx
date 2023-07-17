@@ -10,17 +10,16 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Dropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { Tokens, apiBaseUrls, routes } from "../../consts";
+import {  Tokens, apiBaseUrls, routes } from "../../consts";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { logout } from "../../store/actions/authActions";
 import { fetchCartItemCount,addToCart } from "../../store/actions";
 
 function TopNavbar() {
-  const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
-  const { isLoggedIn  } = useSelector((state) => state.isLoggedIn);
+  const token = localStorage.getItem(Tokens.CUSTOMER);
   const { count  } = useSelector((state) => state.count);
-
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
@@ -30,12 +29,11 @@ function TopNavbar() {
   });
   }
   useEffect(() => {
-    // console.log(token);
-    
-    dispatch(fetchCartItemCount());
-    
-    setToken(localStorage.getItem(Tokens.CUSTOMER));//to change dropdown items
-  }, [isLoggedIn,token,count]);
+    if(token){
+      dispatch(fetchCartItemCount());
+    }
+
+  }, [token]);
   return (
     <>
       <Navbar key="md" className="bg-body-tertiary ">
