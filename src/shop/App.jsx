@@ -1,15 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import ShopLayout from "./components/layout";
-import Home from "./components/Home/Home";
-import Shop from "./components/Shop/Shop";
-import ContactUs from "./components/ContactUs/ContactUs";
-import NotFound from "../errors/NotFound";
+import Home from "./components/home/Home";
+import Shop from "./components/shop/Shop";
+import ContactUs from "./components/contact-us/ContactUs";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./components/styles/auth.css";
 import "./components/styles/style.css";
 import "./components/styles/navbar.css";
-import Service from "./components/Service/Service";
-import ProductDetail from "./components/ProductDetail/ProductDetail";
+import Service from "./components/service/Service";
+import ProductDetail from "./components/product-detail/ProductDetail";
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
@@ -24,7 +23,6 @@ function ShopApp() {
         <Route path="/product-detail/:slug" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
       </Route>
     </Routes>
   );

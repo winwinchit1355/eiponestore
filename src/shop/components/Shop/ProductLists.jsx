@@ -4,7 +4,7 @@ function ProductLists({ products }) {
     <div className="container mb-5">
       <div className="product-grid">
         <div className="row row-cols-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3 g-3 g-sm-4">
-          {products ? (
+          {products && products.length != 0 ? (
             products.map((product) => (
               <div key={product.id} className="col">
                 <div className="card product-card">
