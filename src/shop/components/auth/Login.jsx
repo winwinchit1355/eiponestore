@@ -2,15 +2,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../store/actions/authActions";
-import { useNavigate } from "react-router-dom";
-import Toast from "react-bootstrap/Toast";
-import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { routes } from "../../consts";
-
-// toast.configure()
 
 function Login() {
   const {
@@ -18,9 +14,12 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // const { count  } = useSelector((state) => state.count);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const email = searchParams.get("email");
 
   const onSubmit = (response) => {
     dispatch(login(response)).then(() => {
@@ -37,11 +36,15 @@ function Login() {
               <Card.Title className="text-center">Login</Card.Title>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>
+                    Email address <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Control
                     autoComplete="email"
+                    autoFocus
                     type="email"
                     placeholder="Enter email"
+                    value={email ? email : ""}
                     {...register("email", { required: true })}
                   />
                   {errors.email && (
@@ -50,7 +53,9 @@ function Login() {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
+                  <Form.Label>
+                    Password <span className="text-danger">*</span>
+                  </Form.Label>
                   <Form.Control
                     autoComplete="password"
                     type="password"
