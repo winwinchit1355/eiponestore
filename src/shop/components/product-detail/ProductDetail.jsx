@@ -360,7 +360,7 @@ function ProductDetail() {
                           </span>
                           <em>Published 54 minutes ago</em>
                         </div>
-                        <h4>"Commpletely satisfied"</h4>
+                        <h4>Commpletely satisfied</h4>
                         <p>
                           Eos tollit ancillae ea, lorem consulatu qui ne, eu
                           eros eirmod scaevola sea. Et nec tantas accusamus
@@ -383,7 +383,7 @@ function ProductDetail() {
                           </span>
                           <em>Published 1 day ago</em>
                         </div>
-                        <h4>"Always the best"</h4>
+                        <h4>Always the best</h4>
                         <p>
                           Et nec tantas accusamus salutatus, sit commodo veritus
                           te, erat legere fabulas has ut. Rebum laudem cum ea,
@@ -407,7 +407,7 @@ function ProductDetail() {
                           </span>
                           <em>Published 3 days ago</em>
                         </div>
-                        <h4>"Outstanding"</h4>
+                        <h4>Outstanding</h4>
                         <p>
                           Eos tollit ancillae ea, lorem consulatu qui ne, eu
                           eros eirmod scaevola sea. Et nec tantas accusamus
@@ -430,7 +430,7 @@ function ProductDetail() {
                           </span>
                           <em>Published 4 days ago</em>
                         </div>
-                        <h4>"Excellent"</h4>
+                        <h4>Excellent</h4>
                         <p>
                           Sit commodo veritus te, erat legere fabulas has ut.
                           Rebum laudem cum ea, ius essent fuisset ut. Viderer

@@ -3,14 +3,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchCategories } from "../../store/actions";
 import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Dropdown } from "react-bootstrap";
-import { Tokens } from "../../consts";
 import { ToastContainer } from "react-toastify";
 
 function ShopNavbar({categories}) {
@@ -23,9 +22,7 @@ function ShopNavbar({categories}) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     setValue,
-    watch,
   } = useForm();
   const dispatch = useDispatch();
 

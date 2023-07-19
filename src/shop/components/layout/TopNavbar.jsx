@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
-  faHeart,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
@@ -9,12 +8,12 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Dropdown } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {  Tokens, apiBaseUrls } from "../../consts";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { logout } from "../../store/actions/authActions";
-import { fetchCartItemCount,addToCart } from "../../store/actions";
+import { fetchCartItemCount } from "../../store/actions";
 
 function TopNavbar() {
   const token = localStorage.getItem(Tokens.CUSTOMER);
