@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { serverUrl } from './../../../environment';
 
-export function fetchCartItems(params) {
+export function fetchCartItems() {
   return async (dispatch) => {
     let Url = serverUrl+apiBaseUrls.CARTITEM;
     const response = await apiCall(Url, "get");
@@ -28,7 +28,7 @@ export function addToCart(params) {
   return async (dispatch) => {
     let Url = serverUrl+apiBaseUrls.ADD_TO_CART + params;
     const response = await apiCall(Url, "post");
-    toast.success(response.data.message);
+    toast.success(response.data.message, { autoClose: 1000,position: toast.POSITION.TOP_CENTER });
     dispatch({
       type: cartActionType.ADD_TO_CART,
       payload: response.data,
@@ -40,7 +40,7 @@ export function removeFromCart(params) {
   return async (dispatch) => {
     let Url = serverUrl+apiBaseUrls.REMOVE_CART;
     const response = await apiCall(Url, "post",params);
-    toast.success(response.data.message);
+    toast.success(response.data.message,{autoClose:1000,position: toast.POSITION.TOP_CENTER});
     dispatch({
       type: cartActionType.REMOVE_CART,
       payload: response.data,
@@ -52,19 +52,20 @@ export function clearCart() {
   return async (dispatch) => {
     let Url = serverUrl+apiBaseUrls.CLEAR_CART;
     const response = await apiCall(Url, "post");
-    toast.success(response.data.message);
+    toast.success(response.data.message,{ autoClose: 1000,position: toast.POSITION.TOP_CENTER} );
     dispatch({
       type: cartActionType.CLEAR_CART,
       payload: response.data,
     });
     dispatch(fetchCartItemCount());
+    dispatch(fetchCartItems());
   };
 }
 export function updateCart(params) {
   return async (dispatch) => {
     let Url = serverUrl+apiBaseUrls.UPDATE_CART;
-    const response = await apiCall(Url, "post",params);
-    toast.success(response.data.message);
+    const response = await apiCall(Url, "post",{quantity:params});
+    toast.success(response.data.message,{ autoClose: 1000,position: toast.POSITION.TOP_CENTER} );
     dispatch({
       type: cartActionType.UPDATE_CART,
       payload: response.data,

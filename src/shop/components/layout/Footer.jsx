@@ -1,6 +1,6 @@
 import "@fortawesome/fontawesome-free/css/all.css";
 
-function Footer() {
+function Footer({ categories }) {
   return (
     <footer>
       <section className="py-5 border-top bg-light">
@@ -32,116 +32,59 @@ function Footer() {
               <div className="footer-section2">
                 <h5 className="mb-4 text-uppercase fw-bold">Categories</h5>
                 <ul className="list-unstyled">
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Jeans
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> T-Shirts
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Sports
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Shirts &amp;
-                      Tops
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Clogs &amp;
-                      Mules
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Sunglasses
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Bags &amp;
-                      Wallets
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Sneakers
-                      &amp; Athletic
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Electronis
-                    </a>
-                  </li>
-                  <li className="mb-1">
-                    <a href="#">
-                      <i className="fa-solid fa-chevron-right"></i> Furniture
-                    </a>
-                  </li>
+                  {categories?.data.map((category, index) => (
+                    <li key={index} className="mb-1">
+                      <a href="#">
+                        <i className="fa-solid fa-chevron-right"></i>{" "}
+                        {category.name}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
             <div className="col">
               <div className="footer-section3 ">
-                <h5 className="mb-4 text-uppercase fw-bold">Popular Tags</h5>
+                <h5 className="mb-4 text-uppercase fw-bold">About The Store</h5>
                 <div className="tags-box d-flex flex-wrap gap-2">
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Cloths
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Electronis
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Furniture
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Sports
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Men Wear
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Women Wear
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Laptops
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Formal Shirts
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Topwear
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Headphones
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Bottom Wear
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Bags
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Sofa
-                  </a>
-                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
-                    Shoes
-                  </a>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Architecto voluptatum iusto reiciendis voluptates est quae
+                    neque vero aliquam porro consectetur deleniti nam dolores,
+                    sunt assumenda officia illo cumque quia pariatur.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="col">
-              <div className="footer-section4 text-center">
-                <h5 className="mb-4 text-uppercase fw-bold">Social</h5>
-                <a href="" style={{ fontSize: "18px" }}>
+              <div className="footer-section4 ">
+                <h5 className="mb-4 text-uppercase fw-bold">Keep In Touch</h5>
+                <div className="subscribe">
+                  <input
+                    type="text"
+                    className="form-control rounded-0"
+                    placeholder="Enter Your Email"
+                  />
+                  <div className="mt-3 d-grid">
+                    <a
+                      href="javascript:;"
+                      className="btn btn-dark rounded-0 btn-ecomm"
+                    >
+                      Subscribe
+                    </a>
+                  </div>
+                  <p className="mt-3 mb-0">
+                    Subscribe to receive early discount offers, updates and new
+                    products info.
+                  </p>
+                </div>
+              </div>
+              <div className="footer-section4 ">
+                <h5 className="mt-2 text-uppercase fw-bold">Follow Us</h5>
+                <a
+                  href="https://www.facebook.com/sususilverjelry2022"
+                  style={{ fontSize: "18px" }}
+                >
                   <i className="fa-brands fa-facebook"></i>
                 </a>
               </div>

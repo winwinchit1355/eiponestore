@@ -15,7 +15,7 @@ export function login(params) {
     const response = await apiCall(Url, "post", params);
     setToken(Tokens.CUSTOMER, response.data.access_token);
     setToken(localCache.CUSTOMER, JSON.stringify(response.data.user)); //from obj to str
-    toast.success(response.data.message, { autoClose: 1000 });
+    toast.success(response.data.message, { autoClose: 1000,position: toast.POSITION.TOP_CENTER });
     var isLogIn = false;
     if (response.data.access_token) {
       isLogIn = true;
@@ -32,7 +32,7 @@ export function logout() {
     const response = await apiCall(Url, "post");
     removeToken(Tokens.CUSTOMER);
     removeToken(localCache.CUSTOMER);
-    toast.success(response.data.message, { autoClose: 1000 });
+    toast.success(response.data.message, { autoClose: 1000,position: toast.POSITION.TOP_CENTER });
     dispatch({
       type: apiBaseUrls.LOGOUT,
       payload: false,
@@ -50,7 +50,7 @@ export function register(params) {
     // });
     let Url = serverUrl + apiBaseUrls.REGISTER;
     const response = await apiCall(Url, "post", params);
-    toast.success(response.data.message, { autoClose: 1000 });
+    toast.success(response.data.message, { autoClose: 1000,position: toast.POSITION.TOP_CENTER });
     dispatch({
       type: apiBaseUrls.REGISTER,
       payload: response.data,

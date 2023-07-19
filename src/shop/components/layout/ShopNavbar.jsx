@@ -13,12 +13,12 @@ import { Dropdown } from "react-bootstrap";
 import { Tokens } from "../../consts";
 import { ToastContainer } from "react-toastify";
 
-function ShopNavbar() {
+function ShopNavbar({categories}) {
   // const [token, setToken] = useState(localStorage.getItem(Tokens.CUSTOMER));
   const location = useLocation();
   // const [url, setUrl] = useState(null);
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
-  const { categories } = useSelector((state) => state.categories);
+  
   const navigate = useNavigate();
   const {
     register,
@@ -71,6 +71,7 @@ function ShopNavbar() {
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
                 Menu
               </Offcanvas.Title>
+              
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-center flex-grow-1 ps-5 ms-5">

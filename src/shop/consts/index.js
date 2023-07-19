@@ -27,6 +27,12 @@ export const cartActionType = {
   CLEAR_CART: "CLEAR_CART",
   UPDATE_CART: "UPDATE_CART",
 }
+
+export const orderActionType = {
+  FETCH_ORDERS: "FETCH_ORDERS",
+  COMPLETE_ORDER: "COMPLETE_ORDER",
+}
+
 export const wishlistActionType = {
   FETCH_WISHLISTS: "FETCH_WISHLISTS",
   ADD_TO_WISHLIST: "ADD_TO_WISHLIST",
@@ -51,7 +57,8 @@ export const apiBaseUrls = {
   WISHLIST: "/wishlists",
   CHECKOUT_LIST: "/checkout-list",
   CHECKOUT_COMPLETE: "/checkout-complete",
-  ORDER_LIST: "/orderlist",
+  ORDERLIST: "/orderlist",
+  COMPLETE_ORDER: "/complete-order",
 };
 
 export const Tokens={

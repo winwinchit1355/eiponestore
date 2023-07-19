@@ -33,7 +33,7 @@ function Shop() {
     // </>
     <div className="container pt-5">
       <div className="row">
-        <div className="col-md-3" id="sidebar_fixed">
+        <div className="col-12 col-xl-3 filter-column">
           <ShopProductSidebar/>
         </div>
         <div className="col-md-9">

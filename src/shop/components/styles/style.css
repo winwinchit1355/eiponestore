@@ -988,6 +988,10 @@ a.btn_1 i,
 /*============================================================================================*/
 /* PRODUCT PAGE */
 /*============================================================================================*/
+.thumbs-wrapper ul li img{
+  height:84px !important;
+  object-fit: cover;
+}
 .countdown_inner {
   background: #F33;
   color: #fff;
@@ -2234,3 +2238,4 @@ a.btn_1 i,
   margin-left: 3px;
   text-decoration: underline;
 }
+

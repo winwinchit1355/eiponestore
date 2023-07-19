@@ -5,11 +5,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { fetchProductDetail,addToCart } from "../../store/actions";
 import { Tokens, apiBaseUrls } from "../../consts";
 import 'react-toastify/dist/ReactToastify.css';
+import { imageUrl } from "../../../environment";
 
 function ProductDetail() {
   const { slug } = useParams();
   const params = "/" + slug;
   const { productDetail } = useSelector((state) => state.productDetail);
+  console.log(productDetail?.data.images.length);
   const product= productDetail?.data;
   const navigate = useNavigate();
 
@@ -55,35 +57,44 @@ function ProductDetail() {
     <main className="mt-3">   
 
       <div className="container margin_30">
-        <div className="countdown_inner">
+        {/* <div className="countdown_inner">
           -20% This offer ends in{" "}
           <div data-countdown="2019/05/15" className="countdown" />
-        </div>
+        </div> */}
         <div className="row">
           <div className="col-md-6">
+          {productDetail && productDetail.data.images.length !==0 ?(
+            <Carousel>
+              {productDetail.data.images.map((image,index)=>(
+                <div key={index}>
+                <img 
+                src={imageUrl + image.image_url} 
+                alt={`Image ${index + 1}`}
+                style={{height:"510px",objectFit:"cover"}}
+                 />
+              </div>
+              ))}
+              
+            </Carousel>
+          ):(
             <Carousel>
               <div>
-                <img src="../../../../public/assets/images/1.jpg" />
+                <img src="../../../../public/assets/images/1.jpg" alt="Image 1" />
               </div>
               <div>
-                <img src="../../../../public/assets/images/2.jpg" />
+                <img src="../../../../public/assets/images/2.jpg" alt="Image 2" />
               </div>
               <div>
-                <img src="../../../../public/assets/images/3.jpg" />
+                <img src="../../../../public/assets/images/3.jpg" alt="Image 3" />
               </div>
             </Carousel>
+          )}
+            
           </div>
           <div className="col-md-6">
-            <div className="breadcrumbs">
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">Category</a>
-                </li>
-                <li>Page active</li>
-              </ul>
+            <div className="">
+            <span>{product?.category.name} / {product?.metal.name} / {product?.gemstone.name}</span>
+              
             </div>
             {/* /page_header */}
             <div className="prod_info">
@@ -110,7 +121,7 @@ function ProductDetail() {
                     <div className="numbers-row d-flex align-items-center">
                       <button
                         type="button"
-                        className="qty-button"
+                        className="rounded-0 qty-button"
                         onClick={handleDecrease}
                       >
                         <i className="fa fa-solid fa-minus"></i>
@@ -119,13 +130,13 @@ function ProductDetail() {
                         type="text"
                         defaultValue={1}
                         id="quantity"
-                        className="qty2 form-control mx-2"
+                        className="qty2 rounded-0 form-control mx-2"
                         name="quantity"
                         onChange={handleInputChange}
                       />
                       <button
                         type="button"
-                        className="qty-button"
+                        className="rounded-0 qty-button"
                         onClick={handleIncrease}
                       >
                         <i className="fa fa-solid fa-plus"></i>
@@ -157,31 +168,29 @@ function ProductDetail() {
                     <span className="old_price">$160.00</span> */}
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-6">
+                {product?.quantity >0 ? (
+                  <div className="col-lg-4 col-md-6">
                   <div className="btn_add_to_cart">
                     <a onClick={handleAddToCart} className="btn btn-dark btn-ecommerce">
                       Add to Cart
                     </a>
                   </div>
                 </div>
+                ):''}
+                
               </div>
             </div>
             {/* /prod_info */}
             <div className="product_actions">
-              <ul>
+              {/* <ul>
                 <li>
                   <a href="#">
                     <i className="fa-regular fa-heart"></i>
                     <span>Add to Wishlist</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-light fa-shuffle"></i>
-                    <span>Add to Compare</span>
-                  </a>
-                </li>
-              </ul>
+                
+              </ul> */}
             </div>
             {/* /product_actions */}
           </div>
@@ -189,7 +198,7 @@ function ProductDetail() {
         {/* /row */}
       </div>
       {/* /container */}
-      <div className="tabs_product">
+      {/* <div className="tabs_product">
         <div className="container">
           <ul className="nav nav-tabs" role="tablist">
             <li className="nav-item ">
@@ -216,7 +225,7 @@ function ProductDetail() {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
       {/* /tabs_product */}
       <div className="tab_content_wrapper">
         <div className="container">
@@ -273,8 +282,8 @@ function ProductDetail() {
                       </p>
                     </div>
                     <div className="col-lg-5">
-                      <h3>Specifications</h3>
-                      <div className="table-responsive">
+                      {/* <h3>Specifications</h3> */}
+                      {/* <div className="table-responsive">
                         <table className="table table-sm table-striped table-bordered">
                           <tbody>
                             <tr>
@@ -303,7 +312,7 @@ function ProductDetail() {
                             </tr>
                           </tbody>
                         </table>
-                      </div>
+                      </div> */}
                       {/* /table-responsive */}
                     </div>
                   </div>

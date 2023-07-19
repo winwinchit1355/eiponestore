@@ -4,6 +4,7 @@ import { productReducer } from "./productReducer";
 import { loadingReducer } from "./loadingReducer";
 import { authReducer } from "./authReducer";
 import { cartReducer } from "./cartReducer";
+import { orderReducer } from "./orderReducer";
 
 export const reducers = combineReducers({
   categories: categoryReducer,
@@ -16,4 +17,5 @@ export const reducers = combineReducers({
   register: authReducer,
   cartitems: cartReducer,
   count: cartReducer,
+  orders: orderReducer,
 });

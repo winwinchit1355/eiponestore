@@ -22,11 +22,11 @@ function FeatureProducts({ products }) {
             <div key={product.id} className="col">
               <div className="card product-card">
                 <div className="position-relative overflow-hidden text-center">
-                  <div className="add-cart position-absolute top-0 end-0 mt-3 me-2">
+                  {/* <div className="add-cart position-absolute top-0 end-0 mt-3 me-2">
                     <a title="Add to card"  className="no-underline" onClick={handleAddToCart}>
                       <i className="fa-solid fa-plus" />
                     </a>
-                  </div>
+                  </div> */}
 
                   <a href={`product-detail/${product.slug}`}>
                     <img
@@ -46,7 +46,7 @@ function FeatureProducts({ products }) {
                         {product.name}
                       </h6>
                     </div>
-                    <div className="icon-wishlist">
+                    {/* <div className="icon-wishlist">
                       <a
                         title="Add to wishlist"
                         href="#"
@@ -54,7 +54,7 @@ function FeatureProducts({ products }) {
                       >
                         <i className="fa-regular fa-heart" />
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="cursor-pointer rating mt-2">
                     <i className="fa-regular fa-star text-warning" />

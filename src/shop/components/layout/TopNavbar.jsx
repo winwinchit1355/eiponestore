@@ -57,12 +57,12 @@ function TopNavbar() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end gap-3 p-2 flex-grow-1 pe-3 text-white">
-                <span className="position-relative mt-2">
+                {/* <span className="position-relative mt-2">
                   <FontAwesomeIcon className="m-2" icon={faHeart} />
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     99
                   </span>
-                </span>
+                </span> */}
                 <span className="position-relative mt-2">
                   <a href={apiBaseUrls.CARTLIST} className="text-white"><FontAwesomeIcon className="m-2" icon={faShoppingCart} /></a>
                   
@@ -82,13 +82,13 @@ function TopNavbar() {
                     {token?
                       <>
                       
-                      <li>
+                      {/* <li>
                         <a className="dropdown-item" href={apiBaseUrls.CHECKOUT_LIST}>
                           Checkout
                         </a>
-                      </li>
+                      </li> */}
                       <li>
-                        <a className="dropdown-item" href={apiBaseUrls.ORDER_LIST}>
+                        <a className="dropdown-item" href={apiBaseUrls.ORDERLIST}>
                           My Order
                         </a>
                       </li>

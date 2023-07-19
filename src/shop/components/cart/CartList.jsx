@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, fetchCartItems, updateCart } from "../../store/actions";
-import { Tokens, apiBaseUrls } from "../../consts";
+import { clearCart, completeOrder, fetchCartItems, removeFromCart, updateCart } from "../../store/actions";
+import { Tokens, apiBaseUrls, localCache } from "../../consts";
 import { useNavigate } from "react-router-dom";
 import { imageUrl } from "../../../environment";
 import { toast } from "react-toastify";
@@ -9,12 +9,13 @@ import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 
 function CartList() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,watch  } = useForm();
   const navigate = useNavigate();
   const token = localStorage.getItem(Tokens.CUSTOMER);
+  const customer = JSON.parse(localStorage.getItem(localCache.CUSTOMER));
+  var subTotal=0;
 
   const { cartitems } = useSelector((state) => state.cartitems);
-  console.log(cartitems);
   const dispatch = useDispatch();
   useEffect(() => {
     if (token) {
@@ -31,36 +32,41 @@ function CartList() {
       toast.error("Not enough item!", { autoClose: 1000 });
     }
   };
-  const onFormSubmit = (data) => {
-    console.log(data);
+  const onFormUpdate = () => {
+    const formData = watch(); // Get the form data using the watch function
+
+    // Convert the formData object to the required array format
+    const dataArray = Object.entries(formData.quantity).map(([id, quantity]) => ({
+      id,
+      quantity,
+    }));
+    dispatch(updateCart(dataArray));
   };
   const handleCartItemRemove = (cartItemId) => {
     console.log(cartItemId);
+    dispatch(removeFromCart({id:cartItemId}));
   };
   const handleCartItemClear = () => {
     dispatch(clearCart());
   };
-  const handleCartItemUpdate = () => {
-    dispatch(updateCart());
-  };
+  const handleCompleteOrder = () =>{
+    dispatch(completeOrder());
+  }
+  
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid my-5">
         <div className="shop-cart">
+        <Form onSubmit={handleSubmit(onFormUpdate)}>
           <div className="row">
             <div className="col-12 col-xl-8">
               <div className="shop-cart-list mb-3 p-3">
                 {/* start of cart row */}
                 {cartitems && cartitems.data.length != 0 ? (
-                  cartitems.data.map((cartitem) => (
-                    <React.Fragment key={cartitem.id}>
-                      <Form onSubmit={handleSubmit(onFormSubmit)}>
-                        <input
-                          type="hidden"
-                          name="id"
-                          {...register("id")}
-                          defaultValue={cartitem.uuid}
-                        />
+                  cartitems.data.map((cartitem) => {
+                    subTotal+=cartitem.quantity*cartitem.product.price;
+                    return <React.Fragment key={cartitem.id}>
+                      {/* <Form onSubmit={handleSubmit(onFormSubmit)}> */}
                         <div className="row align-items-center g-3">
                           <div className="col-12 col-lg-6">
                             <div className="d-lg-flex align-items-center gap-3">
@@ -69,7 +75,7 @@ function CartList() {
                                   src={
                                     imageUrl + cartitem.product.feature_image
                                   }
-                                  width={130}
+                                  width={80}
                                   alt=""
                                 />
                               </div>
@@ -95,8 +101,8 @@ function CartList() {
                             <div className="cart-action text-center">
                               <input
                                 type="number"
-                                name="quantity"
-                                {...register("quantity")}
+                                name={`quantity[${cartitem.uuid}]`} 
+                                {...register(`quantity[${cartitem.uuid}]`)}
                                 className="form-control rounded-0"
                                 defaultValue={cartitem.quantity}
                                 min={1}
@@ -131,10 +137,10 @@ function CartList() {
                             </div>
                           </div>
                         </div>
-                      </Form>
+                      {/* </Form> */}
                       <hr />
                     </React.Fragment>
-                  ))
+                })
                 ) : (
                   <div className="row align-items-center g-3">
                     <div className="col-12 col-lg-6">
@@ -163,12 +169,11 @@ function CartList() {
                         <i className="fa fa-regular fa-circle-xmark"></i> Clear
                         Cart
                       </a>
-                      <a
-                        onClick={handleCartItemUpdate}
+                      <button
                         className="btn btn-secondary rounded-0 btn-ecomm"
                       >
                         <i className="fa-solid fa-rotate"></i> Update Cart
-                      </a>
+                      </button>
                     </>
                   ) : (
                     ""
@@ -181,51 +186,51 @@ function CartList() {
                 <div className="checkout-form p-3 bg-light">
                   <div className="card rounded-0 border bg-transparent shadow-none">
                     <div className="card-body">
-                      <p className="fs-5">Estimate Shipping and Tax</p>
+                      <p className="fs-5">Order Information</p>
                       <div className="my-3 border-top" />
                       <div className="mb-3">
-                        <label className="form-label">Country Name</label>
-                        <select className="form-select rounded-0"></select>
+                      <p className="mb-2">
+                        Name: <span className="float-end">{customer.name}</span>
+                      </p>
                       </div>
                       <div className="mb-3">
-                        <label className="form-label">State/Province</label>
-                        <select className="form-select rounded-0"></select>
+                      <p className="mb-2">
+                        Phone: <span className="float-end">{customer.phone}</span>
+                      </p>
                       </div>
                       <div className="mb-0">
-                        <label className="form-label">Zip/Postal Code</label>
-                        <input
-                          type="email"
-                          className="form-control rounded-0"
-                        />
+                      <p className="mb-2">
+                        Address: <span className="float-end">{customer.address}</span>
+                      </p>
                       </div>
                     </div>
                   </div>
                   <div className="card rounded-0 border bg-transparent mb-0 shadow-none">
                     <div className="card-body">
                       <p className="mb-2">
-                        Subtotal: <span className="float-end">$198.00</span>
+                        Subtotal: <span className="float-end">{subTotal} MMK</span>
                       </p>
                       <p className="mb-2">
                         Shipping: <span className="float-end">--</span>
                       </p>
                       <p className="mb-2">
-                        Taxes: <span className="float-end">$14.00</span>
+                        Taxes: <span className="float-end">0</span>
                       </p>
                       <p className="mb-0">
                         Discount: <span className="float-end">--</span>
                       </p>
                       <div className="my-3 border-top" />
                       <h5 className="mb-0">
-                        Order Total: <span className="float-end">212.00</span>
+                        Order Total: <span className="float-end">{subTotal} MMK</span>
                       </h5>
                       <div className="my-4" />
                       <div className="d-grid">
                         {" "}
                         <a
-                          href="#"
+                          onClick={handleCompleteOrder}
                           className="btn btn-dark rounded-0 btn-ecomm"
                         >
-                          Proceed to Checkout
+                          Place Order
                         </a>
                       </div>
                     </div>
@@ -237,6 +242,7 @@ function CartList() {
             )}
           </div>
           {/*end row*/}
+          </Form>
         </div>
       </div>
     </>
