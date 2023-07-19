@@ -67,7 +67,7 @@ function Footer({ categories }) {
                   />
                   <div className="mt-3 d-grid">
                     <a
-                      href="javascript:;"
+                      href="#"
                       className="btn btn-dark rounded-0 btn-ecomm"
                     >
                       Subscribe
