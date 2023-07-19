@@ -6,7 +6,7 @@ function NewArriavalProducts({ products }) {
     <div className="container mb-5">
       <div className="col-md-12  mb-4 text-center">
       <div className="section-title">
-          <h2 className="ec-title">New Arrival Collection</h2>
+          <h5 className="ec-title">New Arrival Collection</h5>
           <p className="sub-title">Browse The Collection of Top Products</p>
         </div>
         {/* <div className="line"></div>
@@ -14,7 +14,7 @@ function NewArriavalProducts({ products }) {
         <div className="line"></div> */}
       </div>
       <div className="product-grid">
-        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4 g-3 g-sm-4">
+        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-4 g-3 g-sm-4">
           {products.data.map((product) => (
             <div key={product.id} className="col">
               <div className="card product-card">

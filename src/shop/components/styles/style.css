@@ -2197,6 +2197,19 @@ a.btn_1 i,
   text-transform: capitalize;
 }
 
+@media only screen and (max-width: 425px) {
+  .ec-title {
+    font-size: 15px !important;
+    padding: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ec-title {
+    font-size: 15px !important;
+    padding: 0 !important;
+  }
+}
 .section-title .ec-title:after {
   content: "";
   position: absolute;

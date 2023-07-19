@@ -15,7 +15,7 @@ function ProductLists({ products }) {
                       </a>
                     </div>
 
-                    <a href="#">
+                    <a href={`product-detail/${product.slug}`}>
                       <img
                         src={imageUrl + product.feature_image}
                         className="justify-image"
