@@ -4,8 +4,6 @@ import { useLocation } from "react-router-dom";
 import { fetchShopProducts } from "../../store/actions";
 import ShopProductSidebar from "./ShopProductSidebar";
 import ProductLists from "./ProductLists";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import LoadingPage from './LoadingPage';
 
 function Shop() {

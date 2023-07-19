@@ -19,7 +19,6 @@ function Register() {
   const navigate = useNavigate();
 
   const onSubmit = (response) => {
-    console.log(response);
     dispatch(registerMethod(response)).then(() => {
       navigate(`${apiBaseUrls.LOGIN}?email=${response.email}`);
     });

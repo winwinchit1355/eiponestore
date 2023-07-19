@@ -9,7 +9,6 @@ function FeatureProducts({ products }) {
     <div className="container mb-5">
       <div className="col-md-12  mb-4 text-center">
         <div className="section-title">
-          <h2 className="ec-bg-title">Feature Collection</h2>
           <h2 className="ec-title">Feature Collection</h2>
           <p className="sub-title">Browse The Collection of Top Products</p>
         </div>

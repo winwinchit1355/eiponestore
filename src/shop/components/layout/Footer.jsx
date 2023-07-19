@@ -93,46 +93,46 @@ function Footer() {
               <div className="footer-section3 ">
                 <h5 className="mb-4 text-uppercase fw-bold">Popular Tags</h5>
                 <div className="tags-box d-flex flex-wrap gap-2">
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Cloths
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Electronis
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Furniture
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Sports
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Men Wear
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Women Wear
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Laptops
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Formal Shirts
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Topwear
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Headphones
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Bottom Wear
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Bags
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Sofa
                   </a>
-                  <a href="#" className="btn btn-ecomm btn-outline-dark">
+                  <a href="#" className="btn btn-ecomm rounded-0 btn-outline-dark">
                     Shoes
                   </a>
                 </div>

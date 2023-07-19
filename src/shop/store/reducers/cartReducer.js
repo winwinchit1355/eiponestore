@@ -8,6 +8,12 @@ export const cartReducer = (state = [], action) => {
       return { ...state, count: action.payload };
     case cartActionType.ADD_TO_CART:
       return { ...state, cartitems: action.payload };
+    case cartActionType.REMOVE_CART:
+      return { ...state, cartitems: action.payload };
+    case cartActionType.CLEAR_CART:
+      return { ...state, cartitems: action.payload };
+    case cartActionType.UPDATE_CART:
+      return { ...state, cartitems: action.payload };
     default:
       return state;
   }

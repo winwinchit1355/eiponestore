@@ -6,7 +6,7 @@ import { serverUrl } from './../../../environment';
 
 export function fetchCartItems(params) {
   return async (dispatch) => {
-    let Url = serverUrl+apiBaseUrls.CARTITEM + params;
+    let Url = serverUrl+apiBaseUrls.CARTITEM;
     const response = await apiCall(Url, "get");
     dispatch({
       type: cartActionType.FETCH_CARTITEMS,
@@ -31,6 +31,42 @@ export function addToCart(params) {
     toast.success(response.data.message);
     dispatch({
       type: cartActionType.ADD_TO_CART,
+      payload: response.data,
+    });
+    dispatch(fetchCartItemCount());
+  };
+}
+export function removeFromCart(params) {
+  return async (dispatch) => {
+    let Url = serverUrl+apiBaseUrls.REMOVE_CART;
+    const response = await apiCall(Url, "post",params);
+    toast.success(response.data.message);
+    dispatch({
+      type: cartActionType.REMOVE_CART,
+      payload: response.data,
+    });
+    dispatch(fetchCartItemCount());
+  };
+}
+export function clearCart() {
+  return async (dispatch) => {
+    let Url = serverUrl+apiBaseUrls.CLEAR_CART;
+    const response = await apiCall(Url, "post");
+    toast.success(response.data.message);
+    dispatch({
+      type: cartActionType.CLEAR_CART,
+      payload: response.data,
+    });
+    dispatch(fetchCartItemCount());
+  };
+}
+export function updateCart(params) {
+  return async (dispatch) => {
+    let Url = serverUrl+apiBaseUrls.UPDATE_CART;
+    const response = await apiCall(Url, "post",params);
+    toast.success(response.data.message);
+    dispatch({
+      type: cartActionType.UPDATE_CART,
       payload: response.data,
     });
     dispatch(fetchCartItemCount());

@@ -1,130 +1,72 @@
 @charset "UTF-8";
 
-/*-----------------------------------------------------------------------------------
-
-    Item Name: Ekka - Ecommerce HTML Template + Admin Dashboard.
-    Author: ashishmaraviya
-    Version: 3.5
-    Copyright 2023
-	Author URI: https://themeforest.net/user/ashishmaraviya
-
------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------
-    Included CSS INDEX
------------------------------------------------------------------------------------
-
-01. Typography
-02. Components
-    - Helper
-    - Common
-    - Popup Model
-    - Breadcrumb
-03. Layout 
-    - Header Section
-    - Mainslider Section
-    - Product Tab Section
-    - Banner Section
-    - Category Section
-    - Specials Section
-    - Services Section
-    - Offer Section
-    - New Product Section
-    - Testimonial Section
-    - Brand Section
-    - Instagram Section
-    - Footer Section
-    - Quickview Section
-    - Category Section
-    - Category Sidebar
-04. Pages
-    - Shop Page
-    - Login Page
-    - Register Page
-    - About us Page
-    - Term Page
-    - Contact us Page
-    - Faq Page
-    - Single Product Page
-    - Blog Page
-    - Cart Page
-    - Compare Page
-    - Track Order Page
-    - Checkout Page    
-    - Elements Tabs Page
-    - Elements Categories Page
-    - Elements Buttons Page
-    - Elements Products Page
-    - Elements Title Page
-    - Elements Coming-Soon Page
-    - Elements Blog Page
-    - Elements Typography Page
-    - Vendor Page
-    - User Page
-    - Offer Page
-    - Thank you Page
-
------------------------------------------------------------------------------------*/
 /*-------------------------------------------------
   Fonts Family & Style CSS
 ---------------------------------------------------*/
+@font-face {
+    font-family: "YsabeauInfant";
+    src: url("../../../../public/assets/fonts/YsabeauInfant-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
 /* @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-Thin.ttf") format("truetype");
     font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-ExtraLight.ttf") format("truetype");
     font-weight: 200;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-Light.ttf");
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-ExtraBold.ttf") format("truetype");
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     src: url("./../fonts/poppins/Poppins-Black.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
@@ -136,29 +78,29 @@
 }
 
 @font-face {
-    font-family: "Montserrat";
-    src: url("./../fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+    font-family: "YsabeauInfant";
+    src: url("./../fonts/montserrat/YsabeauInfant-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Montserrat";
-    src: url("./../fonts/montserrat/Montserrat-SemiBold.ttf") format("truetype");
+    font-family: "YsabeauInfant";
+    src: url("./../fonts/montserrat/YsabeauInfant-SemiBold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Montserrat";
-    src: url("./../fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+    font-family: "YsabeauInfant";
+    src: url("./../fonts/montserrat/YsabeauInfant-Bold.ttf") format("truetype");
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "Montserrat";
-    src: url("./../fonts/montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+    font-family: "YsabeauInfant";
+    src: url("./../fonts/montserrat/YsabeauInfant-ExtraBold.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
 }
@@ -221,7 +163,7 @@
     }
 }
 
-body {
+/* body {
     margin: 0;
     font-family: var(--bs-body-font-family);
     font-size: var(--bs-body-font-size);
@@ -232,7 +174,7 @@ body {
     background-color: var(--bs-body-bg);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+} */
 
 hr {
     margin: 1rem 0;
@@ -429,7 +371,7 @@ pre,
 code,
 kbd,
 samp {
-    font-family: var(--bs-font-monospace);
+    /* font-family: var(--bs-font-monospace); */
     font-size: 1em;
     direction: ltr
         /* rtl:ignore */
@@ -794,10 +736,10 @@ progress {
     content: "— ";
 }
 
-body {
+/* body {
     margin: 0 auto;
     background-color: #ffffff;
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     font-size: 14px;
     font-weight: 400;
     font-style: normal;
@@ -807,7 +749,7 @@ body {
     color: #444444;
     letter-spacing: 0.4px;
     min-height: 100%;
-}
+} */
 
 * {
     -webkit-box-sizing: border-box;
@@ -6329,7 +6271,7 @@ textarea.form-control.is-invalid {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Poppins, sans-serif";
+    /* font-family: "YsabeauInfant"; */
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6502,7 +6444,7 @@ textarea.form-control.is-invalid {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: "Poppins, sans-serif";
+    /* font-family: "YsabeauInfant"; */
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -16664,7 +16606,7 @@ li {
 /*-------------------------------------------------
   Common Style CSS
 ---------------------------------------------------*/
-body {
+/* body {
     font-size: 14px;
     color: #777;
     user-select: none;
@@ -16672,10 +16614,10 @@ body {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     font-weight: 300;
     top: 0 !important;
-}
+} */
 
 h2,
 .h2,
@@ -16687,7 +16629,7 @@ h5,
 .h5,
 h6,
 .h6 {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 /*----  Section  ----*/
@@ -16850,7 +16792,7 @@ h6,
 }
 
 .section-title .ec-title {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 30px;
     font-weight: 800;
     margin-bottom: 7px;
@@ -16891,7 +16833,7 @@ h6,
 }
 
 .section-title .ec-bg-title {
-    font-family: "Fjalla One";
+    font-family: "YsabeauInfant";
     font-size: 63px;
     position: absolute;
     left: 0;
@@ -17341,7 +17283,7 @@ h6,
     color: #777777;
     position: relative;
     font-size: 30px;
-    font-family: "EcIcons";
+    font-family: "YsabeauInfant";
     width: 100%;
     line-height: 30px;
     height: 30px;
@@ -18308,7 +18250,7 @@ h6,
     line-height: 1;
     position: relative;
     top: 0;
-    font-family: "EcIcons";
+    font-family: "YsabeauInfant";
     font-style: normal;
     font-weight: 400;
 }
@@ -18654,7 +18596,7 @@ h6,
     text-indent: 4px;
     line-height: 14px;
     padding-bottom: 2px;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'YsabeauInfant';
     font-weight: bold;
     -webkit-user-select: none;
     margin-top: 5px;
@@ -19231,7 +19173,7 @@ h6,
     color: #444444;
     display: block;
     font-size: 15px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     line-height: 22px;
     font-weight: 700;
     margin: 0 auto;
@@ -19279,7 +19221,7 @@ h6,
     padding-right: 7px;
     color: #444444;
     content: "\f101";
-    font-family: "EcIcons";
+    font-family: "YsabeauInfant";
     font-size: 15px;
 }
 
@@ -19759,7 +19701,7 @@ h6,
     -ms-flex-align: center;
     align-items: center;
     position: relative;
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
 }
 
 .ec-main-menu ul li a .fi.fi-rr-sort-amount-down-alt {
@@ -20288,7 +20230,7 @@ body.ec-open:before {
 .ec-side-cart .ec-cart-inner .ec-cart-title .cart_title {
     font-size: 17px;
     color: #555;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-weight: 600;
 }
 
@@ -20366,7 +20308,7 @@ body.ec-open:before {
 .ec-side-cart .ec-menu-title .menu_title {
     font-size: 18px;
     color: #3474d4;
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     font-weight: 600;
 }
 
@@ -21467,7 +21409,7 @@ button.btn-close.qty_close {
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
 }
 
 .ec-product-inner .ec-pro-content .ec-pro-title a:hover {
@@ -21496,7 +21438,7 @@ button.btn-close.qty_close {
     color: #555;
     font-weight: 700;
     font-size: 15px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-product-inner .ec-pro-content .ec-price span.old-price {
@@ -22057,7 +21999,7 @@ section.ec-test-section {
 }
 
 .ec-test-section .ec-test-name {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 6px;
@@ -22277,7 +22219,7 @@ section.ec-instagram-section {
 }
 
 .ec-footer .footer-top .ec-footer-widget .ec-footer-heading {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 17px;
     font-weight: 600;
     margin-bottom: 11px;
@@ -22935,7 +22877,7 @@ div#ec_news_signup {
 .ec-category-section .ec-cat-tab-nav .cat-link .cat-desc span {
     margin-top: 5px;
     font-size: 17px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-weight: 700;
     color: #444444;
     letter-spacing: 0;
@@ -23491,7 +23433,7 @@ select::-ms-expand {
     position: relative;
     display: block;
     color: #555;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-sidebar-wrap .h3 {
@@ -23690,7 +23632,7 @@ select::-ms-expand {
     border-bottom: none;
     background: #f5f5f5;
     padding: 21px 15px 15px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     border-radius: 5px;
     border: 1px solid #eeeeee;
 }
@@ -23701,7 +23643,7 @@ select::-ms-expand {
     color: #777;
     display: block;
     font-size: 16px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-weight: 600;
     line-height: 20px;
     background: #f7f7f7;
@@ -24136,7 +24078,7 @@ select::-ms-expand {
     font-weight: 700;
     letter-spacing: 0;
     text-align: left;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-cms-block p {
@@ -24398,7 +24340,7 @@ select::-ms-expand {
 }
 
 .ec_contact_info .ec_contact_info_head {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 19px;
@@ -24521,7 +24463,7 @@ h2.ec-faq-heading,
     padding: 0;
     margin-bottom: 15px;
     margin-top: 2px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-faq-block {
@@ -24563,7 +24505,7 @@ h4.ec-faq-title,
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 h4.ec-faq-title::after,
@@ -24715,7 +24657,7 @@ h4.ec-faq-title::after,
     line-height: 1.5;
     letter-spacing: 0.5px;
     font-weight: 400;
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
 }
 
 .product_page .ec-sidebar-slider .ec-sb-pro-sl .ec-sb-pro-sl-item .ec-pro-content .ec-pro-rating {
@@ -24761,7 +24703,7 @@ h4.ec-faq-title::after,
 }
 
 .product_page .ec-sb-slider-title {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     text-decoration: none;
     color: #212121;
     display: block;
@@ -24931,7 +24873,7 @@ h4.ec-faq-title::after,
     margin: 0 0 20px 0;
     text-decoration: none;
     display: block;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-weight: 800;
     line-height: 30px;
     letter-spacing: 0.02rem;
@@ -25000,7 +24942,7 @@ h4.ec-faq-title::after,
     letter-spacing: 0;
     word-break: break-all;
     line-height: 1.7;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .single-pro-content .ec-single-sales {
@@ -25159,7 +25101,7 @@ h4.ec-faq-title::after,
     font-weight: 700;
     font-size: 22px;
     line-height: 1.2;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     letter-spacing: 0;
 }
 
@@ -25191,7 +25133,7 @@ h4.ec-faq-title::after,
     line-height: 1.1;
     letter-spacing: 0.04rem;
     text-transform: uppercase;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .single-pro-content .ec-pro-variation .ec-pro-variation-inner .ec-pro-variation-content li {
@@ -25569,7 +25511,7 @@ i.ecicon.eci-star-o {
 
 .tab-pane p {
     color: #777;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 14px;
     font-weight: 500;
 }
@@ -25623,7 +25565,7 @@ i.ecicon.eci-star-o {
 
 .ec-single-pro-tab-content .ec-single-pro-tab-moreinfo p {
     color: #777;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 15px;
     font-weight: 500;
 }
@@ -25732,7 +25674,7 @@ i.ecicon.eci-star-o {
     font-weight: 700;
     line-height: 1;
     margin-bottom: 10px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-single-pro-tab-content .ec-ratting-content .ec-ratting-star {
@@ -26105,7 +26047,7 @@ i.ecicon.eci-star-o {
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-weight: 600;
     line-height: 1.5;
     letter-spacing: 0;
@@ -26136,7 +26078,7 @@ i.ecicon.eci-star-o {
     letter-spacing: 0;
     word-break: break-all;
     line-height: 24px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-blog-inner .ec-blog-btn a.btn {
@@ -26162,7 +26104,7 @@ i.ecicon.eci-star-o {
     letter-spacing: 0;
     line-height: 1;
     font-weight: 600;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-sidebar-recent-blog .ec-sidebar-block-item .ec-blog-date {
@@ -26256,7 +26198,7 @@ i.ecicon.eci-star-o {
 }
 
 .ec-blog-detail .ec-blog-title {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-weight: 600;
     font-size: 24px;
     letter-spacing: 0;
@@ -26324,7 +26266,7 @@ i.ecicon.eci-star-o {
 .ec-blog-comment-wrapper .ec-single-comment-wrapper h5,
 .ec-blog-comment-wrapper .ec-single-comment-wrapper .h5 {
     color: #777;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
@@ -26930,7 +26872,7 @@ i.ecicon.eci-star-o {
     position: relative;
     display: block;
     color: #555;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     letter-spacing: 0;
     margin: 0 auto;
     text-align: center;
@@ -27026,7 +26968,7 @@ i.ecicon.eci-star-o {
     -ms-flex-align: center;
     align-items: center;
     color: #ffffff;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     background-color: #3474d4;
     letter-spacing: 0;
     padding: 15px;
@@ -27075,7 +27017,7 @@ i.ecicon.eci-star-o {
 }
 
 .ec-trackorder-top .ec-order-id {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 25px;
     font-weight: 600;
     line-height: 40px;
@@ -27245,7 +27187,7 @@ i.ecicon.eci-star-o {
     position: relative;
     display: block;
     color: #444444;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     line-height: 1;
 }
 
@@ -27679,13 +27621,13 @@ i.ecicon.eci-star-o {
 .ec-checkout-summary .ec-checkout-summary-total .text-left {
     font-size: 16px;
     font-weight: 700;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-checkout-summary .ec-checkout-summary-total .text-right {
     font-size: 16px;
     font-weight: 700;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 /*-----  Sidebar Page CSS  ------*/
@@ -28024,7 +27966,7 @@ i.ecicon.eci-star-o {
 .ec-tab-wrapper-3 .ec-single-pro-tab-content .ec-single-pro-tab-desc p,
 .ec-tab-wrapper-4 .ec-single-pro-tab-content .ec-single-pro-tab-desc p {
     margin: 0;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 15px;
     font-weight: 500;
 }
@@ -29471,7 +29413,7 @@ i.ecicon.eci-star-o {
     min-height: 50px;
     border-radius: 60px;
     color: #fff;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-weight: bold;
     background: #222;
     cursor: pointer;
@@ -30662,7 +30604,7 @@ i.ecicon.eci-star-o {
     font-weight: 500;
     margin: 0 0 5px;
     color: #777;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-product-fw .ec-product-body .ec-rating {
@@ -31828,7 +31770,7 @@ i.ecicon.eci-star-o {
 /* -----------/ END Product-sup -----------*/
 /* ----------- START Product-sbtn -----------*/
 .ec-product-sbtn {
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     text-align: center;
 }
 
@@ -32400,7 +32342,7 @@ i.ecicon.eci-star-o {
 
 .ec-title a {
     color: #777;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 15px;
     font-weight: 500;
     white-space: nowrap;
@@ -32632,7 +32574,7 @@ i.ecicon.eci-star-o {
     margin: 0;
     color: #777;
     font-size: 16px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 /*-----  Title Section-1 CSS  -----*/
@@ -33509,7 +33451,7 @@ input[type=email]:focus::-webkit-input-placeholder {
     -webkit-transition: all, 0.5s;
     transition: all, 0.5s;
     line-height: 45px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-card-grid-space .ec-card h1,
@@ -33521,7 +33463,7 @@ input[type=email]:focus::-webkit-input-placeholder {
     color: #ffffff;
     -webkit-transition: all, 0.5s;
     transition: all, 0.5s;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -33535,7 +33477,7 @@ input[type=email]:focus::-webkit-input-placeholder {
     color: #ffffff;
     -webkit-transition: all, 0.5s;
     transition: all, 0.5s;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-card-grid-space .ec-card .ec-date {
@@ -33549,7 +33491,7 @@ input[type=email]:focus::-webkit-input-placeholder {
     opacity: 0.8;
     -webkit-transition: all, 0.5s;
     transition: all, 0.5s;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .ec-card-grid-space .ec-card .ec-tags {
@@ -33938,7 +33880,7 @@ input[type=email]:focus::-webkit-input-placeholder {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 20px;
 }
 
@@ -33987,7 +33929,7 @@ input[type=email]:focus::-webkit-input-placeholder {
     z-index: 20;
     -webkit-transition: all 0.6s;
     transition: all 0.6s;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
     font-size: 14px;
 }
 
@@ -34506,7 +34448,7 @@ input[type=email]:focus::-webkit-input-placeholder {
 .typography h6,
 .typography .h6 {
     margin-bottom: 30px;
-    font-family: "Montserrat";
+    font-family: "YsabeauInfant";
 }
 
 .typography .ec-fc {
@@ -34598,7 +34540,7 @@ input[type=email]:focus::-webkit-input-placeholder {
     margin-top: 10px;
     counter-increment: count;
     color: #3474d4;
-    font-family: "Montserrat", sans-serif;
+    font-family: "YsabeauInfant", sans-serif;
     font-size: 25px;
     text-transform: uppercase;
 }
@@ -34907,7 +34849,7 @@ input[type=email]:focus::-webkit-input-placeholder {
 .ec-catalog-multi-vendor .ec-vendor-card .ec-vendor-card-info .info .ec-catalog-ratings .h6,
 .ec-catalog-multi-vendor .ec-vendor-card .ec-vendor-card-info .info .ec-catalog-pro-count h6,
 .ec-catalog-multi-vendor .ec-vendor-card .ec-vendor-card-info .info .ec-catalog-pro-count .h6 {
-    font-family: "Poppins, sans-serif";
+    font-family: "YsabeauInfant";
     color: #777;
     font-size: 14px;
 }
@@ -36459,7 +36401,7 @@ input[type=email]:focus::-webkit-input-placeholder {
 }
 
 .ec-offer-counter .numbers {
-    font-family: "Montserrat", sans-serif;
+    font-family: "YsabeauInfant", sans-serif;
     color: #fff;
     font-size: 25px;
 }

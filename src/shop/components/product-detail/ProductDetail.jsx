@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchProductDetail,addToCart } from "../../store/actions";
-import { Tokens, apiBaseUrls, routes } from "../../consts";
+import { Tokens, apiBaseUrls } from "../../consts";
 import 'react-toastify/dist/ReactToastify.css';
 
 function ProductDetail() {

@@ -10,7 +10,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Dropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import {  Tokens, apiBaseUrls, routes } from "../../consts";
+import {  Tokens, apiBaseUrls } from "../../consts";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { logout } from "../../store/actions/authActions";
@@ -25,7 +25,7 @@ function TopNavbar() {
   
   const handleLogout = () =>{
     dispatch(logout()).then(() => {
-      navigate(routes.HOME);
+      navigate(apiBaseUrls.HOME);
   });
   }
   useEffect(() => {
@@ -64,7 +64,8 @@ function TopNavbar() {
                   </span>
                 </span>
                 <span className="position-relative mt-2">
-                  <FontAwesomeIcon className="m-2" icon={faShoppingCart} />
+                  <a href={apiBaseUrls.CARTLIST} className="text-white"><FontAwesomeIcon className="m-2" icon={faShoppingCart} /></a>
+                  
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     {count}
                   </span>
@@ -79,9 +80,16 @@ function TopNavbar() {
                     </Dropdown.Header>
                     <ul className="dropdown-menu dropdown-menu-right">
                     {token?
-                      <><li>
-                        <a className="dropdown-item" href="checkout.html">
+                      <>
+                      
+                      <li>
+                        <a className="dropdown-item" href={apiBaseUrls.CHECKOUT_LIST}>
                           Checkout
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href={apiBaseUrls.ORDER_LIST}>
+                          My Order
                         </a>
                       </li>
                       <li>

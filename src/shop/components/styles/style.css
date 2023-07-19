@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "YsabeauInfant";
+  src: url("../../../../public/assets/fonts/YsabeauInfant-Regular.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+body {
+  /* font-family: 'Roboto', sans-serif; */
+  color: #757575;
+	font-size: 14px;
+	letter-spacing: .5px;
+	font-weight: 500;
+	font-family: 'YsabeauInfant';
+	background-color: #fff;
+}
 .bg-dark {
   background-color: #212529 !important;
 }
@@ -282,7 +298,7 @@ li a {
 }
 
 .btn-ecomm {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   border-radius: 0;
   text-transform: uppercase;
@@ -414,7 +430,7 @@ li a {
 }
 
 .sort_select:after {
-  font-family: 'themify';
+  font-family: 'YsabeauInfant';
   position: absolute;
   color: #444;
   left: 0;
@@ -479,7 +495,7 @@ li a {
 }
 
 .filters_listing_1 .dropdown a.drop:after {
-  font-family: 'themify';
+  font-family: 'YsabeauInfant';
   content: "\e64b";
   font-size: 14px;
   font-size: 0.875rem;
@@ -675,7 +691,7 @@ li a {
   -webkit-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  font-family: 'themify';
+  font-family: 'YsabeauInfant';
   font-size: 14px;
   font-size: 0.875rem;
   position: absolute;
@@ -1340,7 +1356,7 @@ a.btn_1 i,
 }
 
 .prod_options .colors ul li a.color.active:before {
-  font-family: 'themify';
+  font-family: 'YsabeauInfant';
   content: "\e64c";
   color: #fff;
   font-size: 13px;
@@ -1675,7 +1691,7 @@ a.btn_1 i,
   }
 
   .tab_content_wrapper .card .card-header a:after {
-    font-family: themify;
+    font-family: 'YsabeauInfant';
     width: 20px;
     display: block;
     float: right;
@@ -1793,7 +1809,7 @@ a.btn_1 i,
 }
 
 .breadcrumbs ul li:after {
-  font-family: 'themify';
+  font-family: 'YsabeauInfant';
   content: "\e649";
   font-size: 10px;
   font-size: 0.625rem;
@@ -2142,4 +2158,79 @@ a.btn_1 i,
 
 .qty-button:hover {
   background-color: #e0e0e0;
+}
+
+/* wwc  */
+
+.dropdown-menu {
+  
+  padding: 8px 0;
+  margin: 2px 0 0;
+  
+}
+
+.dropdown-menu-left {
+  right: auto;
+  left: 0;
+}
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+.section-title .ec-title {
+  font-family: "YsabeauInfant";
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 7px;
+  color: #555;
+  letter-spacing: 0;
+  position: relative;
+  display: inline;
+  padding: 0 64px;
+  line-height: 22px;
+  letter-spacing: 0.02rem;
+  text-transform: capitalize;
+}
+
+.section-title .ec-title:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 3px;
+  width: 50px;
+  margin: 0 auto;
+  background: #3474d4;
+  right: 0;
+  left: auto;
+  display: none;
+}
+
+.section-title .ec-title:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 3px;
+  width: 50px;
+  margin: 0 auto;
+  background: #3474d4;
+  left: 0;
+  right: auto;
+  display: none;
+}
+
+.section-title .sub-title {
+  margin: 10px 0 0 0 !important;
+  color: #777;
+  padding: 0 20%;
+  font-size: 14px;
+  letter-spacing: 0.03rem;
+  font-weight: 300;
+}
+
+.section-title .sub-title a {
+  color: #3474d4;
+  font-weight: 400;
+  margin-left: 3px;
+  text-decoration: underline;
 }

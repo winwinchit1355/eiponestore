@@ -1,6 +1,6 @@
 import {
   apiBaseUrls,
-  constants,
+  localCache,
   Tokens,
   cartActionType,
 } from "../../consts/index";
@@ -14,6 +14,7 @@ export function login(params) {
     let Url = serverUrl + apiBaseUrls.LOGIN;
     const response = await apiCall(Url, "post", params);
     setToken(Tokens.CUSTOMER, response.data.access_token);
+    setToken(localCache.CUSTOMER, JSON.stringify(response.data.user)); //from obj to str
     toast.success(response.data.message, { autoClose: 1000 });
     var isLogIn = false;
     if (response.data.access_token) {
@@ -30,6 +31,7 @@ export function logout() {
     let Url = serverUrl + apiBaseUrls.LOGOUT;
     const response = await apiCall(Url, "post");
     removeToken(Tokens.CUSTOMER);
+    removeToken(localCache.CUSTOMER);
     toast.success(response.data.message, { autoClose: 1000 });
     dispatch({
       type: apiBaseUrls.LOGOUT,
@@ -47,7 +49,6 @@ export function register(params) {
     //   payload: true,
     // });
     let Url = serverUrl + apiBaseUrls.REGISTER;
-    console.log(Url);
     const response = await apiCall(Url, "post", params);
     toast.success(response.data.message, { autoClose: 1000 });
     dispatch({

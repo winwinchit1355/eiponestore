@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../store/actions/authActions";
 import { useLocation, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { routes } from "../../consts";
+import { apiBaseUrls } from "../../consts";
 
 function Login() {
   const {
@@ -23,7 +23,7 @@ function Login() {
 
   const onSubmit = (response) => {
     dispatch(login(response)).then(() => {
-      navigate(routes.HOME);
+      navigate(apiBaseUrls.HOME);
     });
   };
 
@@ -41,10 +41,9 @@ function Login() {
                   </Form.Label>
                   <Form.Control
                     autoComplete="email"
-                    autoFocus
                     type="email"
                     placeholder="Enter email"
-                    value={email ? email : ""}
+                    defaultValue={email ? email : ''}
                     {...register("email", { required: true })}
                   />
                   {errors.email && (
