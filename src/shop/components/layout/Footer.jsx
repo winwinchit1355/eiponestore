@@ -79,15 +79,7 @@ function Footer({ categories }) {
                   </p>
                 </div>
               </div>
-              <div className="footer-section4 ">
-                <h5 className="mt-2 text-uppercase fw-bold">Follow Us</h5>
-                <a
-                  href="https://www.facebook.com/sususilverjelry2022"
-                  style={{ fontSize: "18px" }}
-                >
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-              </div>
+              
             </div>
           </div>
           {/*end row*/}

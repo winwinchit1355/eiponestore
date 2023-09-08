@@ -55,14 +55,14 @@ function TopNavbar() {
                   </span>
                 </span> */}
                 <span className="position-relative mt-2">
-                  <a className="text-white"><i className="fa-brands fa-facebook"></i></a>
+                  <a className="text-white header-icon"><i className="fa-brands fa-facebook"></i></a>
 
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     {count}
                   </span>
                 </span>
                 <span className="position-relative mt-2">
-                  <a href={apiBaseUrls.CARTLIST} className="text-white">
+                  <a href={apiBaseUrls.CARTLIST} className="text-white header-icon">
                     <i className="fa-solid fa-cart-shopping"></i>
                   </a>
 
@@ -73,7 +73,7 @@ function TopNavbar() {
                 <span className="position-relative mt-2 me-4">
                   <Dropdown>
                     <Dropdown.Header>
-                    <a className="text-white">
+                    <a className="text-white header-icon">
                       <i className="fa-solid fa-user"></i>
                     </a>
                     </Dropdown.Header>
