@@ -50,9 +50,16 @@ function ShopNavbar({categories}) {
       <Navbar
         key="md"
         expand="md"
-        className="bg-body-tertiary"
+        className=""
         style={{ borderBottom: "1px solid #e8e9ea" }}
       >
+       <Navbar.Brand
+            className=""
+            href="/"
+            style={{ paddingLeft: "30px" }}
+          >
+            Su Su Store
+          </Navbar.Brand>
         <Container fluid className="nav-container">
           <Navbar.Toggle
             aria-controls="offcanvasNavbar-expand-md"

@@ -6,7 +6,7 @@ import ContactUs from "./components/contact-us/ContactUs";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./components/styles/auth.css";
 import "./components/styles/style.css";
-// import "./components/styles/navbar.css";
+import "./components/styles/navbar.css";
 import Service from "./components/service/Service";
 import ProductDetail from "./components/product-detail/ProductDetail";
 import Login from './components/auth/Login';

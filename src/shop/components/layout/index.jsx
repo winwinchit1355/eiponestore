@@ -8,7 +8,7 @@ function ShopLayout() {
   const { categories } = useSelector((state) => state.categories);
   return (
     <div id="page">
-      <div className="sticky-container sticky-top">
+      <div className="sticky-container">
         <TopNavbar />
         <ShopNavbar categories={categories} />
       </div>
